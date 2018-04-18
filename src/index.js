@@ -4,7 +4,6 @@ import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-java'
 
-
 import { MDCRipple } from '@material/ripple/index'
 
 import './index.scss'
@@ -16,15 +15,13 @@ document.querySelectorAll('.mdc-button').forEach(e => {
     MDCRipple.attachTo(e);
 })
 
-window.requestAnimFrame = (function (callback) {
+window.requestAnimFrame = (callback => {
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
+        function (callback) { window.setTimeout(callback, 1000 / 60) };
 })();
 
 var goTop = $('#goTop');
@@ -35,7 +32,7 @@ canvas.height = window.innerHeight;
 ctx = canvas.getContext('2d');
 
 var display = false;
-window.addEventListener('scroll', function (e) {
+window.addEventListener('scroll', e => {
     var top = document.body.scrollTop | document.documentElement.scrollTop;
     if (top > 200 && !display) {
         Velocity(goTop, "stop");
@@ -48,7 +45,7 @@ window.addEventListener('scroll', function (e) {
     }
 });
 
-goTop.addEventListener("click", function () {
+goTop.addEventListener("click", () => {
     Velocity($('html'), "scroll", { duration: 500 }, { easing: "easeInSine" });
 })
 
@@ -155,8 +152,6 @@ function canvasDots() {
     loop();
 };
 
-window.onload = function () {
-    if (!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
-        canvasDots();
-    }
+window.onload = () => {
+    if (!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) canvasDots();
 };

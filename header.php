@@ -16,7 +16,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-85094676-1', 'auto');
+  ga('create',<?php echo $this->options->recordNUM ?>, 'auto');
   ga('send', 'pageview');
 </script>
 
@@ -46,7 +46,6 @@
     <div id="menu-bar" class="container">
         <h1 class="logo fl"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
         <div class="" id="nav">
-
             <nav id="nav-menu" class="clearfix" role="navigation">
                 <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home"><?php _e('首页'); ?></a>
                 <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>

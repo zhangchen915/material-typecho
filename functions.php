@@ -6,6 +6,9 @@ function themeConfig($form) {
 
     $recordNUM =  new Typecho_Widget_Helper_Form_Element_Text('recordNUM', NULL, NULL, _t('备案号'), _t(''));
     $form->addInput($recordNUM);
+
+    $GA =  new Typecho_Widget_Helper_Form_Element_Text('GA', NULL, NULL, _t('GA号'), _t(''));
+    $form->addInput($GA);
     
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
     array('ShowSearch' => _t('显示搜索框'),'ShowCategory' => _t('显示分类'),'ShowRecentPosts' => _t('显示最新文章'),'ShowArchive' => _t('显示归档'),'ShowTags' => _t('显示标签')),
