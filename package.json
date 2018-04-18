@@ -1,0 +1,19 @@
+{
+  "name": "material-typecho",
+  "version": "1.0.0",
+  "description": "typecho theam",
+  "main": "",
+  "scripts": {
+    "parcel": "parcel build ./src/index.js",
+    "build": "npm run parcel && sh ./build.sh"
+  },
+  "author": "zhangchen915",
+  "license": "ISC",
+  "dependencies": {
+    "material-components-web": "^0.34.1",
+    "prismjs": "^1.14.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.8.3"
+  }
+}
