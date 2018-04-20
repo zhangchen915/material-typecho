@@ -9,8 +9,6 @@ import { MDCRipple } from '@material/ripple/index'
 import './index.scss'
 import '../node_modules/prismjs/themes/prism.css'
 
-const $ = document.querySelector;
-
 document.querySelectorAll('.mdc-button').forEach(e => {
     MDCRipple.attachTo(e);
 })
@@ -24,16 +22,16 @@ window.requestAnimFrame = (callback => {
         function (callback) { window.setTimeout(callback, 1000 / 60) };
 })();
 
-var goTop = $('#goTop');
-var canvas = $('.connecting-dots');
-var canvasColor = '#429E46';
+let goTop = document.querySelector('#goTop');
+let canvas = document.querySelector('.connecting-dots');
+let canvasColor = '#429E46';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
-var display = false;
+let display = false;
 window.addEventListener('scroll', e => {
-    var top = document.body.scrollTop | document.documentElement.scrollTop;
+    let top = document.body.scrollTop | document.documentElement.scrollTop;
     if (top > 200 && !display) {
         Velocity(goTop, "stop");
         Velocity(goTop, { bottom: 95 }, { duration: 300 }, { easing: "easeInSine" });
@@ -46,27 +44,12 @@ window.addEventListener('scroll', e => {
 });
 
 goTop.addEventListener("click", () => {
-    Velocity($('html'), "scroll", { duration: 500 }, { easing: "easeInSine" });
+    Velocity(document.querySelector('html'), "scroll", { duration: 500 }, { easing: "easeInSine" });
 })
 
-function canvasDots() {
-    ctx.lineWidth = .1;
-    ctx.fillStyle = canvasColor;
-    ctx.strokeStyle = canvasColor;
-
-    var mousePosition = {
-        x: 30 * canvas.width / 100,
-        y: 30 * canvas.height / 100
-    };
-
-    var dots = {
-        nb: 600,
-        distance: 60,
-        d_radius: 100,
-        array: []
-    };
-
-    function Dot() {
+//canvas background
+class Dot {
+    constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
 
@@ -76,71 +59,83 @@ function canvasDots() {
         this.radius = Math.random();
     }
 
-    Dot.prototype = {
-        create: function () {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-            ctx.fill();
-            ctx.closePath();
-        },
+    create() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        ctx.fill();
+        ctx.closePath();
+    }
 
-        animate: function () {
-            for (i = 0; i < dots.nb; i++) {
-
-                var dot = dots.array[i];
-
-                if (dot.y < 0 || dot.y > canvas.height) {
-                    dot.vx = dot.vx;
-                    dot.vy = - dot.vy;
-                }
-                else if (dot.x < 0 || dot.x > canvas.width) {
-                    dot.vx = - dot.vx;
-                    dot.vy = dot.vy;
-                }
-                dot.x += dot.vx;
-                dot.y += dot.vy;
+    static animate(dots) {
+        for (let i = 0; i < dots.nb; i++) {
+            let dot = dots.content[i];
+            if (dot.y < 0 || dot.y > canvas.height) {
+                dot.vx = dot.vx;
+                dot.vy = - dot.vy;
             }
-        },
+            else if (dot.x < 0 || dot.x > canvas.width) {
+                dot.vx = - dot.vx;
+                dot.vy = dot.vy;
+            }
+            dot.x += dot.vx;
+            dot.y += dot.vy;
+        }
+    }
 
-        line: function () {
-            for (i = 0; i < dots.nb; i++) {
-                for (j = 0; j < dots.nb; j++) {
-                    i_dot = dots.array[i];
-                    j_dot = dots.array[j];
+    static line(dots, mousePosition) {
+        for (let i = 0; i < dots.nb; i++) {
+            for (let j = 0; j < dots.nb; j++) {
+                const i_dot = dots.content[i];
+                const j_dot = dots.content[j];
 
-                    if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance) {
-                        if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius) {
-                            ctx.beginPath();
-                            ctx.moveTo(i_dot.x, i_dot.y);
-                            ctx.lineTo(j_dot.x, j_dot.y);
-                            ctx.stroke();
-                            ctx.closePath();
-                        }
+                if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance) {
+                    if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius) {
+                        ctx.beginPath();
+                        ctx.moveTo(i_dot.x, i_dot.y);
+                        ctx.lineTo(j_dot.x, j_dot.y);
+                        ctx.stroke();
+                        ctx.closePath();
                     }
                 }
             }
         }
+    }
+}
+
+function canvasDots() {
+    ctx.lineWidth = .1;
+    ctx.fillStyle = canvasColor;
+    ctx.strokeStyle = canvasColor;
+
+    let mousePosition = {
+        x: 30 * canvas.width / 100,
+        y: 30 * canvas.height / 100
+    };
+
+    let dots = {
+        nb: 600,
+        distance: 60,
+        d_radius: 100,
+        content: []
     };
 
     function createDots() {
-        for (i = 0; i < dots.nb; i++) {
-            dots.array.push(new Dot());
+        for (let i = 0; i < dots.nb; i++) {
+            dots.content.push(new Dot());
         }
     }
 
     function loop() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (i = 0; i < dots.nb; i++) {
-            dot = dots.array[i];
-            dot.create();
+        for (let i = 0; i < dots.nb; i++) {
+            dots.content[i].create();
         }
-        dot.line();
-        dot.animate();
+        Dot.line(dots, mousePosition);
+        Dot.animate(dots);
         requestAnimationFrame(loop);
     }
 
-    window.onmousemove = function (e) {
+    window.onmousemove = e => {
         mousePosition.x = e.x;
         mousePosition.y = e.y;
     };
