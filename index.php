@@ -2,7 +2,7 @@
  $this->need('header.php');
 ?>
 
-<div class="grid-3-4" id="main" role="main">
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9" id="main" role="main">
 	<?php while($this->next()): ?>
         <article class="post type-post" >
 			<h2 class="post-title" itemprop="name headline"><a itemtype="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>

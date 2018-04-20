@@ -90,7 +90,7 @@ function threadedComments($comments, $options) {
         <img src="//gravatar.com/avatar/?d=mm&s=100" width="100" class="avatar">
         <div class="comment-form-main">
             <div class="comment-textarea-wrapper">
-                <textarea id="comment" name="text" onclick='document.getElementById("comment-form-do").style.display="block";' cols="45" rows="8" aria-required="true" required="required" placeholder="在这里输入你的评论..."><?php $this->remember('text',false); ?></textarea>
+                <textarea id="comment" name="text" onclick='document.getElementById("comment-form-do").style.display="block";' aria-required="true" required="required" placeholder="在这里输入你的评论..."><?php $this->remember('text',false); ?></textarea>
             </div>
             
             <div class="comment-form-fields" id="comment-form-do">

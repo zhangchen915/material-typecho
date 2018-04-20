@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
-    <div class="grid-3-4" id="main" role="main">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9" id="main" role="main">
         <div class="archive-title type-post">
             <strong><?php echo $this->category(); ?></strong>
              <div class="descrip"><?php echo $this->getDescription(); ?></div>
