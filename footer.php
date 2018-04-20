@@ -17,7 +17,6 @@
 </footer><!-- end #footer -->
 <?php $this->footer(); ?>
 
-<script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
 <script src="<?php $this->options->themeUrl('dist/index.js'); ?>"></script>
 </body>
 </html>

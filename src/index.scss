@@ -461,20 +461,32 @@ ul.widget-list.flinks{
 
 /*footer*/
 #goTop {
-    display: block;width: 38px;height: 38px;background-color: #ddd;border-radius: 3px;
-    border: 0;cursor: pointer;position: fixed;right: 50px;bottom: -40px;
-    &:hover{opacity: 0.8;filter: alpha(opacity=80);}
+    position: fixed;
+    right: 50px;
+    bottom:80px;
+    width: 38px;
+    height: 38px;
+    background-color: #ddd;
+    border-radius: 3px;
+    border: 0;cursor: pointer;
+    transition: bottom ease-in .5s;
+    &:hover {
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
     div {
         position: absolute;right: 0;left: 0;margin: auto;
     }
     .arrow {
-        width: 0;height: 0;top: -1px;border: 9px solid transparent;border-bottom-color: $themes-color;
+        width: 0;height: 0;top: -1px;
+        border: 9px solid transparent;
+        border-bottom-color: $themes-color;
     }
     .stick {
         width: 8px;height: 14px;top: 15px;border-radius: 1px;background-color: $themes-color;
     }
     &.mbtop{
-        right: 10px;bottom: -40px;
+        bottom: -40px;
     }
 }
 #footer {
@@ -488,11 +500,14 @@ ul.widget-list.flinks{
     background: #525252;
     border-top: 2px solid $themes-color;
     font-size: 0.875em;
-    a{color:#fff;}
-    a:hover{text-decoration: underline;
+    a{
+        color:#fff;
+        &:hover{
+            text-decoration: underline;
+        }
     }
-   &.mbfoot{
-    padding: 1em 0;
+    &.mbfoot{
+        padding: 1em 0;
    }
 }
 
