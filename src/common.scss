@@ -2,6 +2,12 @@ $themes-color: #429E46;
 $header-bg: #429E46;
 $border-radius: 3px;
 $box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+@mixin line-ellipsis-style() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 ::selection {
     background: $header-bg;
     color: white;

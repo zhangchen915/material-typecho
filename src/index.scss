@@ -1,6 +1,7 @@
+@import '@material/layout-grid/mdc-layout-grid.scss';
 @import '@material/button/mdc-button.scss';
 @import '@material/ripple/mdc-ripple.scss';
-@import '@material/layout-grid/mdc-layout-grid.scss';
+@import '@material/list/mdc-list.scss';
 @import './common.scss';
 @import './comment.scss';
 .container {
@@ -85,14 +86,6 @@
 
 .mdc-button.color-filled-button {
     @include mdc-button-filled-accessible($themes-color);
-}
-
-.fixsidebar {
-    top: -400px;
-}
-
-.fixsidebar.fix {
-    position: fixed
 }
 
 #search {
@@ -393,56 +386,43 @@
     padding: 10px;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
-}
-
-.widget h3 {
-    color: $themes-color;
-    margin: 0;
-    line-height: 30px;
-    border-bottom: 1px solid #ddd;
-    position: relative;
-}
-
-.widget h3:before {
-    border-bottom: 1px solid $themes-color;
-    position: absolute;
-    content: "";
-    width: 70px;
-    height: 0;
-    bottom: -1px;
-}
-
-.widget-list {
-    list-style: none;
-    padding: 0;
-}
-
-.widget-category .widget-list li {
-    border-bottom: 1px dashed #ddd;
-    line-height: 30px;
-}
-
-.widget-list li {
-    margin: 5px 0;
-    line-height: 1.5;
-    a {
-        color: #333;
-        display: block;
-    }
-    a:hover {
+    h3 {
         color: $themes-color;
+        margin: 0;
+        line-height: 30px;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        &:before {
+            border-bottom: 1px solid $themes-color;
+            position: absolute;
+            content: "";
+            width: 70px;
+            height: 0;
+            bottom: -1px;
+        }
     }
-}
-
-.weidget-recent li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    list-style: inside disc;
-    color: #999;
-    margin-left: 0px;
-    span {
-        display: none;
+    .widget-list {
+        list-style: none;
+        padding: 0;
+        li {
+            margin: 5px 0;
+            line-height: 1.5;
+            a {
+                color: #333;
+                display: block;
+                &:hover {
+                    color: $themes-color;
+                }
+            }
+        }
+    }
+    .mdc-list-item {
+        padding: 0;
+        a {
+            display: block;
+            line-height: 40px;
+            @include line-ellipsis-style()
+        }
     }
 }
 
@@ -472,36 +452,6 @@ ul.widget-list.flinks {
     padding-left: 10px;
     li {
         list-style: none;
-    }
-}
-
-.weidget-recent.fixed {
-    position: fixed;
-    top: 15px;
-    width: 288px;
-    overflow: hidden;
-    animation-name: dropdown;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease;
-    transition: all 0.3s linear;
-}
-
-@-webkit-keyframes dropdown {
-    0% {
-        -webkit-transform: translate(0, -100%)
-    }
-    100% {
-        -webkit-transform: translate(0, 0)
-    }
-}
-
-@keyframes dropdown {
-    0% {
-        transform: translate(0, -100%)
-    }
-    100% {
-        transform: translate(0, 0)
     }
 }
 
@@ -537,8 +487,7 @@ ul.widget-list.flinks {
     border-width: 1px 0 0 0;
 }
 
-/*footer*/
-
+//footer
 #goTop {
     position: fixed;
     right: 50px;

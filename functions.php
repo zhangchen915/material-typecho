@@ -12,7 +12,7 @@ function themeConfig($form) {
     
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
     array('ShowSearch' => _t('显示搜索框'),'ShowCategory' => _t('显示分类'),'ShowRecentPosts' => _t('显示最新文章'),'ShowArchive' => _t('显示归档'),'ShowTags' => _t('显示标签')),
-    array('ShowSearch', 'ShowCategory', 'ShowRecentPosts', 'ShowArchive', 'ShowTags'), _t('侧边栏显示'));
+    array('ShowSearch', 'ShowCategory', 'ShowRecentPosts', 'ShowTags'), _t('侧边栏显示'));
     $form->addInput($sidebarBlock->multiMode());
 
     $css = new Typecho_Widget_Helper_Form_Element_Radio('css',

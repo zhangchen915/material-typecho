@@ -2,7 +2,7 @@
 <?php $this->need('header.php'); ?>
 
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9" id="main" role="main">
-        <div class="archive-title type-post">
+        <div class="archive-title">
             <strong><?php echo $this->category(); ?></strong>
              <div class="descrip"><?php echo $this->getDescription(); ?></div>
         </div> 
