@@ -420,6 +420,7 @@
         padding: 0;
         a {
             display: block;
+            width: 100%;
             line-height: 40px;
             @include line-ellipsis-style()
         }
