@@ -59,7 +59,7 @@
             <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
             <?php endwhile; ?>
                 <?php if(is_mobile()) : ?>
-                <a href="javascript:;" class="searchicon"><img src="<?php $this->options->themeUrl('img/search.png'); ?>" alt=""></a>
+                <a href="javascript:;" class="searchicon"><img src="<?php $this->options->themeUrl('dist/img/search.png'); ?>" alt=""></a>
             <?php endif;?>
                 <?php if(is_mobile()) : ?>
                 <input type="checkbox" id="button">
