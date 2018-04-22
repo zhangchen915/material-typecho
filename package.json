@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "material-components-web": "^0.34.1",
-    "prismjs": "^1.14.0"
+    "prismjs": "^1.14.0",
+    "zooming": "^2.0.0"
   },
   "devDependencies": {
     "node-sass": "^4.8.3"

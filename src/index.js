@@ -3,8 +3,10 @@ import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-java'
-
-import { MDCRipple } from '@material/ripple/index'
+import Zooming from 'zooming'
+import {
+    MDCRipple
+} from '@material/ripple/index'
 
 import './index.scss'
 import '../node_modules/prismjs/themes/prism.css'
@@ -19,7 +21,9 @@ window.requestAnimFrame = (callback => {
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
-        function (callback) { window.setTimeout(callback, 1000 / 60) };
+        function (callback) {
+            window.setTimeout(callback, 1000 / 60)
+        };
 })();
 
 let goTop = document.querySelector('#goTop');
@@ -49,6 +53,7 @@ function animateScroll(targetHeight) {
     var step_x = Math.PI / SCROLL_DURATION;
     var step_count = 0;
     requestAnimationFrame(step);
+
     function step() {
         if (step_count < SCROLL_DURATION) {
             requestAnimationFrame(step);
@@ -88,10 +93,9 @@ class Dot {
             let dot = dots.content[i];
             if (dot.y < 0 || dot.y > canvas.height) {
                 dot.vx = dot.vx;
-                dot.vy = - dot.vy;
-            }
-            else if (dot.x < 0 || dot.x > canvas.width) {
-                dot.vx = - dot.vx;
+                dot.vy = -dot.vy;
+            } else if (dot.x < 0 || dot.x > canvas.width) {
+                dot.vx = -dot.vx;
                 dot.vy = dot.vy;
             }
             dot.x += dot.vx;
@@ -105,8 +109,8 @@ class Dot {
                 const i_dot = dots.content[i];
                 const j_dot = dots.content[j];
 
-                if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance) {
-                    if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius) {
+                if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > -dots.distance && (i_dot.y - j_dot.y) > -dots.distance) {
+                    if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > -dots.d_radius && (i_dot.y - mousePosition.y) > -dots.d_radius) {
                         ctx.beginPath();
                         ctx.moveTo(i_dot.x, i_dot.y);
                         ctx.lineTo(j_dot.x, j_dot.y);
@@ -166,4 +170,9 @@ function canvasDots() {
 
 window.onload = () => {
     if (!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) canvasDots();
+    new Zooming({
+        customSize: '125%',
+        bgOpacity:.5,
+        enableGrab: false
+    }).listen('.post-content img');
 };
