@@ -32,15 +32,19 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     #menu-bar {
         opacity: 0.9;
+        display: flex;
     }
     .logo {
-        display: inline;
-        margin-right: 25px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        line-height: 55px;
+        margin: 0;
         a {
+            display: block;
             color: white;
+            height: 56px;
+            line-height: 56px;
+            margin-right: 25px;
             text-decoration: none;
+            user-select: none;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
     }
 }
@@ -413,7 +417,7 @@
             }
         }
     }
-    .widget-tag {
+    &.widget-tag {
         position: sticky;
         top: 60px;
         .tag-cloud {

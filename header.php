@@ -50,7 +50,7 @@
 <canvas class='connecting-dots'></canvas>
 <header id="header">
     <div id="menu-bar" class="container">
-        <h1 class="logo fl"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
+        <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
         
         <nav id="nav-menu" class="clearfix" role="navigation">
             <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home"><?php _e('首页'); ?></a>
