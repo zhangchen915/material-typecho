@@ -32,10 +32,10 @@ const ctx = canvas.getContext('2d');
 let showGoTop = false;
 window.addEventListener('scroll', e => {
     const top = document.body.scrollTop | document.documentElement.scrollTop;
-    if (top > 200 && !display) {
+    if (top > 200 && !showGoTop) {
         goTop.className = '';
         showGoTop = true;
-    } else if (top < 200 && display) {
+    } else if (top < 200 && showGoTop) {
         goTop.className = 'mbtop';
         showGoTop = false;
     }
