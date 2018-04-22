@@ -56,7 +56,7 @@
             <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home"><?php _e('首页'); ?></a>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?>
-            <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+            <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
             <?php endwhile; ?>
                 <?php if(is_mobile()) : ?>
                 <a href="javascript:;" class="searchicon"><img src="<?php $this->options->themeUrl('img/search.png'); ?>" alt=""></a>
@@ -68,7 +68,7 @@
                     <li><a class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home"><?php _e('首页'); ?></a></li>
                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                     <?php while($pages->next()): ?>
-                    <li><a href="<?php $pages->permalink(); ?>" class="mdc-button mdc-button--unelevated color-filled-button" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a></li>
+                    <li><a href="<?php $pages->permalink(); ?>" class="mdc-button mdc-button--unelevated color-filled-button"><?php $pages->title(); ?></a></li>
                     <?php endwhile; ?> 
                 </ul>
             <?php endif;?>

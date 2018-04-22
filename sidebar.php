@@ -22,7 +22,7 @@
                         <?php if ($this->category == $category->slug): ?> class="current"<?php endif; ?>
                         <?php else: ?><?php if ($this->is('category', $category->slug)): ?> class="current"<?php endif; ?>
                         <?php endif; ?>>
-                        <a href="<?php $category->permalink(); ?>" title="<?php $category->name(); ?>"><?php $category->name(); ?><em>(<?php $category->count(); ?>)</em></a>
+                        <a href="<?php $category->permalink(); ?>"><?php $category->name(); ?>（<?php $category->count(); ?>）</a>
                     </li>
                     <li class="mdc-list-divider" role="separator"></li>
                 <?php endwhile; ?>

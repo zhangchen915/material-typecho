@@ -22,7 +22,7 @@
             <h3>相关文章推荐</h3>
             <ul class="clearfix">
                 <?php while ($relatedPosts->next()): ?>
-                <li><a href="<?php $relatedPosts->permalink(); ?>" title="<?php $relatedPosts->title(); ?>"><?php $relatedPosts->title(); ?></a></li>
+                <li><a href="<?php $relatedPosts->permalink(); ?>"><?php $relatedPosts->title(); ?></a></li>
                 <?php endwhile; ?>
             </ul>
         </div>

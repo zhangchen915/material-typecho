@@ -106,13 +106,13 @@ function threadedComments($comments, $options) {
                 </span>
             </div>
          
-            <button name="submit" type="submit" id="submit" class="submit" title="发表评论"></button> 
+            <button name="submit" type="submit" id="submit" class="submit"></button> 
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
      
         </div>
         <!-- <div class="comment-form-extra">
-            <span class="response"><?php if($this->user->hasLogin()): ?> You are <a href="<?php $this->options->profileUrl(); ?>" data-no-instant><?php $this->user->screenName(); ?></a> here, do you want to <a href="<?php $this->options->logoutUrl(); ?>" title="Logout" data-no-instant>logout</a> ?<?php endif; ?></span>
+            <span class="response"><?php if($this->user->hasLogin()): ?> You are <a href="<?php $this->options->profileUrl(); ?>" data-no-instant><?php $this->user->screenName(); ?></a> here, do you want to <a href="<?php $this->options->logoutUrl(); ?>" data-no-instant>logout</a> ?<?php endif; ?></span>
             
         </div> -->
     </form>
