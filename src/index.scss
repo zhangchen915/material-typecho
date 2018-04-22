@@ -39,7 +39,7 @@
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         line-height: 55px;
         a {
-            color: #fff;
+            color: white;
             text-decoration: none;
         }
     }
@@ -133,7 +133,7 @@
     height: 0;
     line-height: 0;
     overflow: hidden;
-    background-color: #fff;
+    background-color: white;
     border-bottom: 1px solid #E1E1E1;
     padding: 0px 10px;
     z-index: 100;
@@ -204,7 +204,7 @@
 .post {
     padding: 15px 20px;
     margin-bottom: 15px;
-    background: #fff;
+    background: white;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     &.type-post {
@@ -310,7 +310,7 @@
     margin: 0 0 1em;
     padding: 10px 20px;
     color: #999;
-    background: #fff;
+    background: white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(255, 255, 255, 0.75) inset;
     border-radius: 2px;
     strong {
@@ -361,7 +361,7 @@
             &:hover {
                 text-decoration: none;
                 background-color: $themes-color;
-                color: #fff;
+                color: white;
             }
         }
     }
@@ -372,7 +372,7 @@
     }
     li.current a {
         background-color: $themes-color;
-        color: #fff;
+        color: white;
     }
 }
 
@@ -382,7 +382,7 @@
 
 .widget {
     margin-bottom: 15px;
-    background: #fff;
+    background: white;
     padding: 10px;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
@@ -401,58 +401,39 @@
             bottom: -1px;
         }
     }
-    .widget-list {
-        list-style: none;
-        padding: 0;
-        li {
-            margin: 5px 0;
-            line-height: 1.5;
-            a {
-                color: #333;
-                display: block;
-                &:hover {
-                    color: $themes-color;
-                }
-            }
-        }
-    }
     .mdc-list-item {
         padding: 0;
         a {
             display: block;
             width: 100%;
             line-height: 40px;
-            @include line-ellipsis-style()
+            @include line-ellipsis-style();
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
-}
-
-.tag-cloud {
-    padding: 10px 0;
-    a {
-        display: inline-block;
-        padding: 2px 5px;
-        background: #EAEAEA;
-        margin: 0 5px 5px 0;
-        border-radius: 2px;
-        color: #333;
-        -webkit-transition: all 0.2s linear;
-        -moz-transition: all 0.2s linear;
-        -ms-transition: all 0.2s linear;
-        transition: all 0.2s linear;
-        &:hover {
-            color: #fff;
-            background: $themes-color;
-            text-decoration: none;
-            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.1)
+    .widget-tag {
+        position: sticky;
+        top: 60px;
+        .tag-cloud {
+            padding: 10px 0;
+            a {
+                display: inline-block;
+                padding: 2px 5px;
+                background: #EAEAEA;
+                margin: 0 5px 5px 0;
+                border-radius: 2px;
+                color: #333;
+                transition: all 0.2s linear;
+                &:hover {
+                    color: white;
+                    background: $themes-color;
+                    text-decoration: none;
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.1)
+                }
+            }
         }
-    }
-}
-
-ul.widget-list.flinks {
-    padding-left: 10px;
-    li {
-        list-style: none;
     }
 }
 
@@ -476,7 +457,7 @@ ul.widget-list.flinks {
 
 .post-content a img,
 .comment-content a img {
-    background: #FFF;
+    background: white;
     position: relative;
     bottom: -4px;
 }
@@ -541,7 +522,7 @@ ul.widget-list.flinks {
     border-top: 2px solid $themes-color;
     font-size: 0.875em;
     a {
-        color: #fff;
+        color: white;
         &:hover {
             text-decoration: underline;
         }
@@ -669,7 +650,7 @@ ul.widget-list.flinks {
         text-align: left;
     }
     #nav-menu ul li a {
-        color: #fff;
+        color: white;
         font-size: 14px;
         display: block;
         height: 30px;

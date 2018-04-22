@@ -44,7 +44,7 @@
         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArchive', $this->options->sidebarBlock)): ?>
             <section class="widget">
                 <h3>归档</h3>
-                <ul class="widget-list">
+                <ul class="mdc-list">
                     <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
                     ->parse('<li><a href="{permalink}">{date}</a></li>'); ?>
                 </ul>
