@@ -37,12 +37,10 @@ html {
 
 body {
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
     background-color: #F5F5F5;
     color: #666;
-    font: 1em/1.5 "microsoft yahei", Georgia, "Times New Roman", STHeiti, serif;
-    margin: 0;
+    font: 1em/1.5 "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     .mobile-body {
         padding-top: 0px;
     }
@@ -57,7 +55,6 @@ a {
 }
 
 pre {
-    margin: 1em auto;
     padding: 1em;
     white-space: pre-wrap;
     border-radius: 5px;
@@ -66,7 +63,6 @@ pre {
 code {
     font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", monospace;
     color: $themes-color;
-    white-space: pre-wrap;
 }
 
 blockquote {
