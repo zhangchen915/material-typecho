@@ -172,7 +172,18 @@ window.onload = () => {
     if (!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) canvasDots();
     new Zooming({
         customSize: '125%',
-        bgOpacity:.5,
+        bgOpacity: .5,
         enableGrab: false
     }).listen('.post-content img');
 };
+
+document.addEventListener('copy', e => {
+    let author = document.querySelector('.logo a').textContent;
+    const selection = window.getSelection()
+    if (e.path[1].className === 'post-content') {
+        author = e.path[2].querySelector("a[rel='author']").textContent;
+    }
+    e.clipboardData.setData('text/plain',
+        `${selection.toString()}\n作者：${author}\n原文地址：${document.domain}`);
+    e.preventDefault();
+})
