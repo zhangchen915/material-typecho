@@ -1,5 +1,3 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-
         </div>
 </div><!-- end #body -->
 <div id="goTop">

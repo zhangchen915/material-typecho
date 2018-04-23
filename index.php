@@ -1,6 +1,5 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit;
- $this->need('header.php');
-?>
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php $this->need('common/header.php'); ?>
 
 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9" id="main" role="main">
 	<?php while($this->next()): ?>
@@ -22,5 +21,5 @@
     <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
 </div><!-- end #main-->
 
-<?php $this->need('sidebar.php'); ?>
-<?php $this->need('footer.php'); ?>
+<?php $this->need('common/sidebar.php'); ?>
+<?php $this->need('common/footer.php'); ?>

@@ -1,6 +1,5 @@
 <!--[if lte IE 11]><script>(function(){var e="abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i]);}}());</script><![endif]-->
 <!DOCTYPE html>
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <html>
 <head>
     <meta charset="<?php $this->options->charset(); ?>">
