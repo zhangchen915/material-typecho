@@ -9,7 +9,18 @@ function themeConfig($form) {
 
     $GA =  new Typecho_Widget_Helper_Form_Element_Text('GA', NULL, NULL, _t('GA号'), _t(''));
     $form->addInput($GA);
-    
+
+    $CC = new Typecho_Widget_Helper_Form_Element_Radio('CC',
+    array(
+    'CC-BY' => _t('署名'),
+    'CC-BY-SA' => _t('署名--禁止演绎'),
+    'CC-BY-NC' => _t('署名--非商业性使用'),
+    'CC-BY-NC-SA' => _t('署名--非商业性使用--禁止演绎'),
+    'CC-BY-NC-ND' => _t('署名--非商业性使用--相同方式共享'),
+    'CC-BY-ND' => _t('署名--相同方式共享')),
+    'CC-BY-NC-SA',_t('知识共享协议'));
+    $form->addInput($CC->multiMode());
+
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
     array('ShowSearch' => _t('显示搜索框'),'ShowCategory' => _t('显示分类'),'ShowRecentPosts' => _t('显示最新文章'),'ShowArchive' => _t('显示归档'),'ShowTags' => _t('显示标签')),
     array('ShowSearch', 'ShowCategory', 'ShowRecentPosts', 'ShowTags'), _t('侧边栏显示'));

@@ -471,6 +471,29 @@
     border-width: 1px 0 0 0;
 }
 
+.creative-commons{
+    width: 120px;
+    height: 42px;
+    &.CC-BY{
+        background-image: url('./licensed/CC-BY.svg')
+    }
+    &.CC-BY-SA{
+        background-image: url('./licensed/CC-BY-SA.svg')
+    }
+    &.CC-BY-NC{
+        background-image: url('./licensed/CC-BY-NC.svg')
+    }
+    &.CC-BY-NC-SA{
+        background-image: url('./licensed/CC-BY-NC-SA.svg')
+    }
+    &.CC-BY-NC-ND{
+        background-image: url('./licensed/CC-BY-NC-ND.svg')
+    }
+    &.CC-BY-NC-SA{
+        background-image: url('./licensed/CC-BY-NC-SA.svg')
+    }
+}
+
 //footer
 #goTop {
     position: fixed;

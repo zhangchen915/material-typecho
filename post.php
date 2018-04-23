@@ -15,6 +15,8 @@
         <div class="post-content" itemprop="articleBody">
             <?php $this->content(); ?>
         </div>
+
+        <div class="creative-commons <?php echo $this->options->CC ?>"></div>
        
         <div itemprop="keywords" class="tags">标签: <?php $this->tags(', ', true, '无'); ?></div>
         <?php $this->related(4)->to($relatedPosts); ?>
