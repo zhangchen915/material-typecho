@@ -8,7 +8,7 @@
             <?php if(!is_mobile()) :?><li itemprop="author">作者: <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li><?php endif; ?>
             <li>时间: <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y-m-d'); ?></time></li>
             <li>分类: <?php $this->category(','); ?></li>
-            <li><span>阅读：<?php $this->views(); ?>次</span></li>
+            <li><span>阅读：<?php get_post_view($this) ?>次</span></li>
 		    <li><span class="ds-thread-count" data-thread-key="<?php $this->cid(); ?>"></span></li>
         </ul>
 
