@@ -187,3 +187,8 @@ document.addEventListener('copy', e => {
         `${selection.toString()}\n作者：${author}\n原文地址：${document.domain}`);
     e.preventDefault();
 })
+
+const toggle=document.querySelector('#toggle')
+toggle.addEventListener('click', e => {
+    toggle.className=toggle.className?'':'on';
+})

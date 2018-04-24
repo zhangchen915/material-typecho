@@ -42,39 +42,31 @@
 <canvas class='connecting-dots'></canvas>
 <header id="header">
     <div id="menu-bar" class="container">
+        <?php if(is_mobile()) : ?>
+        <!-- <a href="javascript:;" class="searchicon"><img src="<?php $this->options->themeUrl('dist/img/search.png'); ?>" alt=""></a> -->
+        <a id="toggle"><span></span></a>
+        <ul id="mobile-menu">
+            <li><a class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a></li>
+            <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+            <?php while($pages->next()): ?>
+            <li><a href="<?php $pages->permalink(); ?>" class="mdc-button mdc-button--unelevated color-filled-button"><?php $pages->title(); ?></a></li>
+            <?php endwhile; ?> 
+        </ul>
+        <?php endif;?>
+
         <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
-        
+
+        <?php if(!is_mobile()) : ?>
         <nav id="nav-menu" class="clearfix" role="navigation">
             <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?>
             <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
             <?php endwhile; ?>
-                <?php if(is_mobile()) : ?>
-                <a href="javascript:;" class="searchicon"><img src="<?php $this->options->themeUrl('dist/img/search.png'); ?>" alt=""></a>
-            <?php endif;?>
-                <?php if(is_mobile()) : ?>
-                <input type="checkbox" id="button">
-                <label for="button" onclick=""></label>
-                <ul>
-                    <li><a class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a></li>
-                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                    <?php while($pages->next()): ?>
-                    <li><a href="<?php $pages->permalink(); ?>" class="mdc-button mdc-button--unelevated color-filled-button"><?php $pages->title(); ?></a></li>
-                    <?php endwhile; ?> 
-                </ul>
-            <?php endif;?>
         </nav>
+        <?php endif;?>
     </div>
-
-    <?php if(is_mobile()) : ?>
-    <div class="mb-search">
-        <form id="bmsearchform" method="post" action="./" role="search">
-            <input type="text" name="s" class="bmtext" autocomplete="on" placeholder="输入关键字搜索" />
-        </form>
-    </div>
-    <?php endif;?>
-</header><!-- end #header -->
+</header>
 <div id="body">
     <div class="container mdc-layout-grid">
         <div class="mdc-layout-grid__inner">
