@@ -172,7 +172,7 @@ window.onload = () => {
     if (!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) canvasDots();
     new Zooming({
         customSize: '125%',
-        bgOpacity: .5,
+        bgColor: 'rgba(26,26,26,.65)',
         enableGrab: false
     }).listen('.post-content img');
 };

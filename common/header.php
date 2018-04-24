@@ -1,22 +1,21 @@
-<!--[if lte IE 11]><script>(function(){var e="abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i]);}}());</script><![endif]-->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="<?php $this->options->charset(); ?>">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw=&rss1=&rss2=&atom=&commentReply='); ?>
 
-    <?php if($this->options->recordNUM): ?>
+    <?php if($this->options->GA): ?>
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create',<?php echo $this->options->recordNUM ?>, 'auto');
+    ga('create',<?php echo $this->options->GA ?>, 'auto');
     ga('send', 'pageview');
     </script>
     <?php endif;?>
@@ -32,20 +31,14 @@
         <?php if($this->is('index')){echo " | "; $this->options->description(); }?>
     </title>
 
-    <!-- 使用url函数转换相关路径 $this->options->css -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/' . 'index' . '.css'); ?>">
-
-    <!-- 通过自有函数输出HTML头部信息 -->
-    <?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw=&rss1=&rss2=&atom=&commentReply='); ?>
 </head>
 
-<body<?php if(is_mobile()) {echo ' class="mobile-body"';}?>>
-
+<body>
 <!--[if lt IE 11]>
-    <div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请<a href="http://browsehappy.com/">升级你的浏览器</a></div>
+    <div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请<a href="//browsehappy.com/">升级你的浏览器</a></div>
 <![endif]-->
 
-<div>
 <canvas class='connecting-dots'></canvas>
 <header id="header">
     <div id="menu-bar" class="container">
