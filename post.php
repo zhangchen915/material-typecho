@@ -18,7 +18,8 @@
         <div class="creative-commons <?php echo $this->options->CC ?>"></div>
         <div itemprop="keywords" class="tags">标签：<?php $this->tags(', ', true, '无'); ?></div>
 
-        <?php $this->related(4)->to($relatedPosts); if($relatedPosts) : ?>
+        <?php $this->related(4)->to($relatedPosts); ?>
+        <?php if ($relatedPosts->have()): ?>
         <div class="related">
             <h3>相关文章推荐</h3>
             <ul class="clearfix">
