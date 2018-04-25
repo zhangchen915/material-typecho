@@ -21,7 +21,7 @@
                         <?php if ($this->category == $category->slug): ?> class="current"<?php endif; ?>
                         <?php else: ?><?php if ($this->is('category', $category->slug)): ?> class="current"<?php endif; ?>
                         <?php endif; ?>>
-                        <a href="<?php $category->permalink(); ?>"><?php $category->name(); ?>（<?php $category->count(); ?>）</a>
+                        <a href="<?php $category->permalink(); ?>"><?php $category->name(); ?>(<?php $category->count(); ?>)</a>
                     </li>
                     <li class="mdc-list-divider" role="separator"></li>
                 <?php endwhile; ?>
@@ -35,7 +35,7 @@
             <h3>最新文章</h3>
             <ul class="mdc-list mdc-list--dense">
                 <?php $this->widget('Widget_Contents_Post_Recent','pageSize=5')
-                ->parse('<li><a class="mdc-list-item" href="{permalink}">{title}</a></li>'); ?>
+                ->parse('<li class="mdc-list-item"><a href="{permalink}">{title}</a></li>'); ?>
             </ul>
         </section>
         <?php endif; ?>

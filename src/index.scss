@@ -179,31 +179,6 @@
     }
 }
 
-#bmsearchform {
-    border-bottom: 1px solid $themes-color;
-    position: relative;
-    width: 100%;
-    background: url(./img/search-color.png) no-repeat 3px 3px;
-    background-size: 20px 20px;
-    height: 28px;
-    margin-top: 18px;
-    &:before,
-    &:after {
-        position: absolute;
-        bottom: 0;
-        width: 1px;
-        height: 8px;
-        background: $themes-color;
-        content: "";
-    }
-    &:before {
-        left: 0;
-    }
-    &:after {
-        right: 0;
-    }
-}
-
 .browsehappy {
     padding: 8px 0;
     border-color: #EBCCD1;
@@ -217,7 +192,6 @@
     }
 }
 
-//POST
 .post {
     padding: 15px 20px;
     margin-bottom: 15px;
@@ -245,8 +219,6 @@
         bottom: -3px;
         left: 100%;
         width: 0;
-        -webkit-transition: width 350ms, left 350ms;
-        -moz-transition: width 350ms, left 350ms;
         transition: width 350ms, left 350ms;
     }
     .post-title a:hover {
@@ -256,50 +228,42 @@
     .post-title a:hover:after {
         left: 0;
         width: 100%;
-        -webkit-transition: width 350ms;
-        -moz-transition: width 350ms;
         transition: width 350ms;
     }
     h1.post-title {
         font-size: 1.5em;
     }
     .post-title.page-h1 {
-        border-bottom: 1px dashed #ddd;
+        border-bottom: 1px dashed $gray-light;
     }
     .post-meta {
         text-align: center;
         margin: 0;
         padding: 0;
-        color: #999;
+        color: $gray-middle;
         font-size: .875em;
-        border-bottom: 1px dashed #ddd;
+        border-bottom: 1px dashed $gray-light;
         padding-bottom: 5px;
-    }
-    .post-meta li {
-        display: inline-block;
-        margin: 0 8px 0 0;
-    }
-    .post-content {
-        line-height: 1.5;
-    }
-    .post .tags {
-        clear: both;
+        li {
+            display: inline-block;
+            margin: 0 8px 0 0;
+        }
     }
     .post-near {
         list-style: none;
         margin: 20px 0 0;
         padding: 0;
-        color: #999;
-        border-top: 1px solid #ddd;
-    }
-    .post-near li {
-        margin: 5px 0;
+        color: $gray-middle;
+        border-top: 1px solid $gray-light;
+        li {
+            margin: 5px 0;
+        }
     }
 }
 
 .related {
     h3 {
-        border-top: 1px solid #ddd;
+        border-top: 1px solid $gray-light;
         margin: 0;
         color: $themes-color;
         line-height: 32px;
@@ -311,10 +275,10 @@
             width: 50%;
             list-style: inside disc;
             float: left;
-            color: #999;
+            color: $gray-middle;
         }
         a {
-            color: #333;
+            color: $gray-deep;
         }
         a:hover {
             color: $themes-color;
@@ -325,7 +289,7 @@
 .archive-title {
     margin: 0 0 1em;
     padding: 10px 20px;
-    color: #999;
+    color: $gray-middle;
     background: white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(255, 255, 255, 0.75) inset;
     border-radius: 2px;
@@ -364,7 +328,7 @@
     li {
         display: inline-block;
         margin: 0 8px 0 0;
-        color: #333;
+        color: $gray-deep;
         a {
             display: inline-block;
             padding: 0 10px;
@@ -402,7 +366,7 @@
         color: $themes-color;
         margin: 0;
         line-height: 30px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid $gray-light;
         position: relative;
         &:before {
             border-bottom: 1px solid $themes-color;
@@ -430,13 +394,16 @@
         top: 60px;
         .tag-cloud {
             padding: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             a {
                 display: inline-block;
                 padding: 2px 5px;
                 background: #EAEAEA;
                 margin: 0 5px 5px 0;
                 border-radius: 2px;
-                color: #333;
+                color: $gray-deep;
                 transition: all 0.2s linear;
                 &:hover {
                     color: white;
@@ -511,7 +478,7 @@
     bottom: 80px;
     width: 38px;
     height: 38px;
-    background-color: #ddd;
+    background-color: $gray-light;
     border-radius: 3px;
     border: 0;
     cursor: pointer;
@@ -552,7 +519,7 @@
     padding: 2em 0;
     line-height: 1.5;
     text-align: center;
-    color: #999;
+    color: $gray-middle;
     background: #525252;
     border-top: 2px solid $themes-color;
     font-size: 0.875em;
