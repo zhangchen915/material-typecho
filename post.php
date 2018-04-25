@@ -9,7 +9,6 @@
             <li>时间：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y-m-d'); ?></time></li>
             <li>分类：<?php $this->category(','); ?></li>
             <li><span>阅读：<?php get_post_view($this) ?>次</span></li>
-		    <li><span class="ds-thread-count" data-thread-key="<?php $this->cid(); ?>"></span></li>
         </ul>
 
         <div class="post-content" itemprop="articleBody">
@@ -17,9 +16,9 @@
         </div>
 
         <div class="creative-commons <?php echo $this->options->CC ?>"></div>
-       
         <div itemprop="keywords" class="tags">标签：<?php $this->tags(', ', true, '无'); ?></div>
-        <?php $this->related(4)->to($relatedPosts); ?>
+
+        <?php $this->related(4)->to($relatedPosts); if($relatedPosts) : ?>
         <div class="related">
             <h3>相关文章推荐</h3>
             <ul class="clearfix">
@@ -28,6 +27,7 @@
                 <?php endwhile; ?>
             </ul>
         </div>
+        <?php endif; ?>
 
         <ul class="post-near">
             <li>上一篇：<?php $this->thePrev('%s','没有了'); ?></li>
