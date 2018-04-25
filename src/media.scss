@@ -2,15 +2,7 @@
     div,a {
         -webkit-tap-highlight-color:rgba(0,0,0,0)
     }
-    #menu-bar,.container{
-        padding: 0 10px!important;
-    }
-
-    #nav-menu a {
-        font-size: 1em;
-        padding: 0 15px;
-        .mdc-buttton{
-            display: none;
-        }
+   .container {
+        margin: 0 10px!important;
     }
 }

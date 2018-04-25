@@ -7,6 +7,7 @@ import Zooming from 'zooming'
 import {
     MDCRipple
 } from '@material/ripple/index'
+import {MDCPersistentDrawer} from '@material/drawer';
 
 import './index.scss'
 import '../node_modules/prismjs/themes/prism.css'
@@ -169,7 +170,16 @@ function canvasDots() {
 };
 
 window.onload = () => {
-    if (!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) canvasDots();
+    if (navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
+        const toggle = document.querySelector('#toggle');
+        const drawer = new MDCPersistentDrawer(document.querySelector('.mdc-drawer--persistent'));
+        toggle.addEventListener('click', e => {
+            toggle.className = toggle.className ? '' : 'on';
+            drawer.open = !drawer.open
+        })
+    } else {
+        canvasDots();
+    }
     new Zooming({
         customSize: '125%',
         bgColor: 'rgba(26,26,26,.65)',
@@ -186,9 +196,4 @@ document.addEventListener('copy', e => {
     e.clipboardData.setData('text/plain',
         `${selection.toString()}\n作者：${author}\n原文地址：${document.domain}`);
     e.preventDefault();
-})
-
-const toggle=document.querySelector('#toggle')
-toggle.addEventListener('click', e => {
-    toggle.className=toggle.className?'':'on';
 })

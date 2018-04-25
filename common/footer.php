@@ -1,5 +1,5 @@
-        </div>
-</div><!-- end #body -->
+</div>
+
 <div id="goTop">
 	<div class="arrow"></div>
 	<div class="stick"></div>
@@ -12,6 +12,7 @@
     <?php endif;?>
 </footer>
 <?php $this->footer(); ?>
+</div>
 
 <script src="<?php $this->options->themeUrl('dist/index.js'); ?>"></script>
 </body>

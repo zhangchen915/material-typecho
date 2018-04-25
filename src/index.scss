@@ -2,9 +2,14 @@
 @import '@material/button/mdc-button.scss';
 @import '@material/ripple/mdc-ripple.scss';
 @import '@material/list/mdc-list.scss';
+@import '@material/drawer/mdc-drawer.scss';
 @import './common.scss';
 @import './comment.scss';
 @import './media.scss';
+.body-content {
+    width: 100%;
+}
+
 .container {
     position: relative;
     max-width: 1180px;
@@ -47,10 +52,6 @@
             user-select: none;
         }
     }
-}
-
-#body {
-    padding-top: 70px;
 }
 
 #nav-menu {
@@ -130,31 +131,11 @@
                 transform: rotate(-45deg) translate(7px, -8px);
             }
         }
-        &+#mobile-menu {
-            opacity: 1;
-            display: block;
-        }
     }
 }
 
-#mobile-menu {
-    position: absolute;
-    top: 60px;
-    left: 10px;
-    background: white;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    display: none;
-    transition: opacity .4s;
-    ul,
-    li {
-        list-style: none;
-    }
-    a {
-        width: 100%;
-        margin-top: 1px;
-    }
+.mdc-layout-grid {
+    padding-top: 70px
 }
 
 #search {
@@ -195,16 +176,6 @@
             border: solid rgb(224, 224, 224);
             border-width: 0 0 1px 0;
         }
-    }
-}
-
-.searchicon {
-    position: absolute;
-    right: 0;
-    top: 0;
-    img {
-        width: 20px;
-        vertical-align: middle;
     }
 }
 

@@ -40,19 +40,28 @@
 <![endif]-->
 
 <canvas class='connecting-dots'></canvas>
+
+<?php if(is_mobile()) : ?>
+    <aside class="mdc-drawer mdc-drawer--persistent mdc-typography">
+        <nav class="mdc-drawer__drawer">
+            <div class="mdc-drawer__toolbar-spacer"></div>
+            <div class="mdc-list-group">
+                <nav class="mdc-list">
+                    <a class="mdc-list-item mdc-list-item--activated" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
+                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                    <?php while($pages->next()): ?>
+                    <a href="<?php $pages->permalink(); ?>" class="mdc-list-item"><?php $pages->title(); ?></a>
+                    <?php endwhile; ?> 
+                </nav>
+            </div>
+        </nav>
+    </aside>
+<?php endif;?>
+
+<div class="body-content">
 <header id="header">
     <div id="menu-bar" class="container">
-        <?php if(is_mobile()) : ?>
-        <!-- <a href="javascript:;" class="searchicon"><img src="<?php $this->options->themeUrl('dist/img/search.png'); ?>" alt=""></a> -->
-        <a id="toggle"><span></span></a>
-        <ul id="mobile-menu">
-            <li><a class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a></li>
-            <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-            <?php while($pages->next()): ?>
-            <li><a href="<?php $pages->permalink(); ?>" class="mdc-button mdc-button--unelevated color-filled-button"><?php $pages->title(); ?></a></li>
-            <?php endwhile; ?> 
-        </ul>
-        <?php endif;?>
+        <?php if(is_mobile()) : ?><a id="toggle"><span></span></a><?php endif;?>
 
         <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
 
@@ -65,8 +74,17 @@
             <?php endwhile; ?>
         </nav>
         <?php endif;?>
+
+        <?php if(is_mobile()) : ?>
+        <div id="search-content">
+            <form id="search" method="post" action="./" role="search">
+                <input type="text" name="s" class="text" autocomplete="off" placeholder="输入关键字搜索" />
+                <hr/><hr/><button type="submit" class="submit"></button>
+            </form>
+        </div>
+        <?php endif;?>
     </div>
 </header>
-<div id="body">
-    <div class="container mdc-layout-grid">
-        <div class="mdc-layout-grid__inner">
+
+<div class="container mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
