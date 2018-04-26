@@ -5,10 +5,10 @@
     <article class="post">
         <h1 class="post-title" itemprop="name headline"><?php $this->title() ?></h1>
         <ul class="post-meta">
-            <?php if(!is_mobile()) :?><li itemprop="author">作者: <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li><?php endif; ?>
+            <li itemprop="author">作者：<a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>
             <li>时间：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y-m-d'); ?></time></li>
             <li>分类：<?php $this->category(','); ?></li>
-            <li><span>阅读：<?php get_post_view($this) ?>次</span></li>
+            <li>阅读：<?php get_post_view($this) ?>次</li>
         </ul>
 
         <div class="post-content" itemprop="articleBody">

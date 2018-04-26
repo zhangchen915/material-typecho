@@ -60,23 +60,24 @@
 
 <div class="body-content">
 <header id="header">
-    <div id="menu-bar" class="container">
-        <?php if(is_mobile()) : ?><a id="toggle"><span></span></a><?php endif;?>
+    <div class="container">
+        <div class="header-left">
+            <?php if(is_mobile()) : ?><a id="toggle"><span></span></a><?php endif;?>
+            <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
 
-        <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
-
-        <?php if(!is_mobile()) : ?>
-        <nav id="nav-menu" class="clearfix" role="navigation">
-            <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
-            <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-            <?php while($pages->next()): ?>
-            <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
-            <?php endwhile; ?>
-        </nav>
-        <?php endif;?>
+             <?php if(!is_mobile()) : ?>
+            <nav id="nav-menu" class="clearfix" role="navigation">
+                <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
+                <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                <?php while($pages->next()): ?>
+                <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
+                <?php endwhile; ?>
+            </nav>
+            <?php endif;?>
+        </div>
 
         <?php if(is_mobile()) : ?>
-        <div id="search-content">
+        <div class="header-right">
             <form id="search" method="post" action="./" role="search">
                 <input type="text" name="s" class="text" autocomplete="off" placeholder="输入关键字搜索" />
                 <hr/><hr/><button type="submit" class="submit"></button>

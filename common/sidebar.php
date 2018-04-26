@@ -1,4 +1,4 @@
-<aside class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3" role="complementary">
+<aside class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-4-phone" role="complementary">
     <?php if(!is_mobile()) :?>
         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowSearch', $this->options->sidebarBlock)): ?>
         <section class="widget widget_search">
