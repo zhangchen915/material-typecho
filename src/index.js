@@ -8,6 +8,7 @@ import {
     MDCRipple
 } from '@material/ripple/index'
 import {MDCPersistentDrawer} from '@material/drawer';
+import {MDCTextField} from '@material/textfield';
 
 import './index.scss'
 import '../node_modules/prismjs/themes/prism.css'
@@ -15,6 +16,8 @@ import '../node_modules/prismjs/themes/prism.css'
 document.querySelectorAll('.mdc-button').forEach(e => {
     MDCRipple.attachTo(e);
 })
+
+new MDCTextField(document.querySelector('.mdc-text-field'));
 
 window.requestAnimFrame = (callback => {
     return window.requestAnimationFrame ||

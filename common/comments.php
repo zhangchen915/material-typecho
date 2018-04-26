@@ -85,13 +85,13 @@ function threadedComments($comments, $options) {
     </h3>
     
     <form action="<?php $this->commentUrl() ?>" method="post" id="commentform" class="comment-form<?php $commentClass ?>">
-        <img src="//gravatar.com/avatar/?d=mm&s=100" width="100" class="avatar">
         <div class="comment-form-main">
-            <div class="comment-textarea-wrapper">
-                <textarea id="comment" name="text" onclick='document.getElementById("comment-form-do").style.display="block";' aria-required="true" required="required" placeholder="在这里输入你的评论..."><?php $this->remember('text',false); ?></textarea>
+            <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
+                <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required="required"><?php $this->remember('text',false); ?></textarea>
+                <label for="textarea" class="mdc-floating-label">输入评论</label>
             </div>
-            
-            <div class="comment-form-fields" id="comment-form-do">
+                        
+            <div class="comment-form-fields">
                 <span class="comment-form-author">
                     <input type="text" name="author" maxlength="12" id="author" placeholder="昵称" value="" required>
                 </span>

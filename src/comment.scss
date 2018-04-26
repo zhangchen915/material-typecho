@@ -1,4 +1,7 @@
-// 评论
+.mdc-floating-label{
+    background-color: transparent!important;
+}
+
 .comment-form-author:after {
     content: "*";
     color: #F44336;
@@ -68,10 +71,7 @@
 }
 
 #commentform {
-    display: flex;
-    height: 100px;
     margin-bottom: 50px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
 }
 
 #commentform .required {
@@ -146,11 +146,6 @@
     bottom: 0
 }
 
-.comment-form-main {
-    position: relative;
-    flex: 1;
-}
-
 .comment-textarea-wrapper {
     height: 100%;
 }
@@ -210,76 +205,8 @@
     content: "\E24E"
 }
 
-.comment-smilies {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    display: none;
-    width: 150px;
-    padding: 5px;
-    background: #FFF;
-    border-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
-    -webkit-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-animation: commentSmiliesIn .3s;
-    animation: commentSmiliesIn .3s
-}
-
-.comment-smilies.out {
-    -webkit-animation-name: commentSmiliesOut;
-    animation-name: commentSmiliesOut;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards
-}
-
-.comment-smilies .emoji {
-    display: inline-block;
-    width: 1em;
-    margin: 3px;
-    font-size: 24px;
-    line-height: 1;
-    vertical-align: middle;
-    cursor: pointer
-}
-
-@-webkit-keyframes commentSmiliesIn {
-    from {
-        opacity: 0;
-        -webkit-transform: scale(.7);
-        transform: scale(.7)
-    }
-}
-
-@keyframes commentSmiliesIn {
-    from {
-        opacity: 0;
-        -webkit-transform: scale(.7);
-        transform: scale(.7)
-    }
-}
-
-@-webkit-keyframes commentSmiliesOut {
-    to {
-        opacity: 0;
-        -webkit-transform: scale(.7);
-        transform: scale(.7)
-    }
-}
-
-@keyframes commentSmiliesOut {
-    to {
-        opacity: 0;
-        -webkit-transform: scale(.7);
-        transform: scale(.7)
-    }
-}
-
 .comment-form-fields {
-    display: none;
-    float: left;
+    display: inline-block;
     background: #FFF;
     border-radius: 2px;
     margin-top: 5px;
@@ -308,9 +235,7 @@
 }
 
 #submit {
-    position: absolute;
-    top: 71px;
-    right: 20px;
+    vertical-align: top;
     width: 56px;
     height: 56px;
     padding: 0;
@@ -494,9 +419,6 @@
     margin-left: 40px
 }
 
-// .comment-list .comment,.comment-list .pingback {
-//     border-top: 1px solid #DDD
-// }
 .comment-list .pingback {
     font-style: italic;
     text-align: center
@@ -637,11 +559,6 @@
     margin-bottom: 14px
 }
 
-.ads-comments,
-.ads-post-btm,
-.ads-post-top {
-    margin: 40px 0
-}
 
 @media (max-width: 568px) {
     .comment-reply-login,
@@ -652,11 +569,6 @@
     .post-list .post:after,
     .post-navigation .arrow {
         display: none !important
-    }
-    .ads-comments,
-    .ads-post-btm,
-    .ads-post-top {
-        margin: 15px 0
     }
     .comment-navigation,
     .posts-navigation {
