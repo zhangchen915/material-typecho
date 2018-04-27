@@ -66,7 +66,7 @@
             <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
 
              <?php if(!is_mobile()) : ?>
-            <nav id="nav-menu" class="clearfix" role="navigation">
+            <nav class="nav-menu pjax-header">
                 <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
                 <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                 <?php while($pages->next()): ?>

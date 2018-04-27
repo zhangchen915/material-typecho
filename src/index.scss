@@ -56,39 +56,21 @@
     }
 }
 
-#nav-menu {
+.nav-menu {
     display: inline-block;
     font-size: 0;
     vertical-align: top;
-}
-
-#nav-menu input[type=checkbox] {
-    position: absolute;
-    box-sizing: border-box;
-    padding: 0;
-    top: -9999px;
-    left: -9999px;
-}
-
-#nav-menu label,
-#nav-menu ul {
-    display: none;
-}
-
-#nav-menu a {
-    padding: 0 20px;
-    font-size: 14px;
-    line-height: 56px;
-    height: 56px;
-    line-height: 56px;
-    height: 56px;
-    transition: background 0.2s linear;
-}
-
-#nav-menu a:hover,
-#nav-menu .current {
-    background: lighten($themes-color, 5%);
-    text-decoration: none;
+    a {
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 56px;
+        height: 56px;
+        text-decoration: none;
+    }
+    a:hover,
+    & .current {
+        background-color: lighten($themes-color, 5%) !important;
+    }
 }
 
 .mdc-button.color-filled-button {

@@ -27,7 +27,7 @@ if(textField){
 
 new Pjax({
     elements: "a",
-    selectors: [".pjax-content"]
+    selectors: ['.pjax-header','.pjax-content']
 })
 
 window.requestAnimFrame = (callback => {
