@@ -63,14 +63,14 @@ pre {
 }
 
 code {
-    font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", monospace;
+    font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", "Microsoft YaHei", "WenQuanYi Micro Hei";
     color: $themes-color;
 }
 
 blockquote {
     margin: 1em .5em;
     padding-left: 1.5em;
-    border-left: 4px solid #ddd;
+    border-left: 4px solid $gray-light;
     background-color: #F4F5F6;
     padding: 1px 1em;
 }
@@ -81,7 +81,7 @@ table {
 }
 
 td {
-    border: 1px solid #ddd;
+    border: 1px solid $gray-light;
     padding: 2px;
 }
 

@@ -1,5 +1,4 @@
-<?php
-function threadedComments($comments, $options) {
+<?php function threadedComments($comments, $options) {
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -20,37 +19,30 @@ function threadedComments($comments, $options) {
 <li id="li-<?php $comments->theId(); ?>" class="comment even thread-even depth-<?php echo $depth ?> <?php $comments->alt(' comment-odd', 'comment-even');?>">
     <article id="<?php $comments->theId(); ?>" class="comment-body">
         <div class="comment-meta">
-            <div class="comment-author vcard">
+            <div class="comment-author">
                 <?php
-                    $host = 'https://cdn.v2ex.com'; //自定义头像CDN服务器
-                    $url = '/gravatar/'; //自定义头像目录,一般保持默认即可
-                    $size = '100'; //自定义头像大小
+                    $host = 'https://cdn.v2ex.com';
+                    $url = '/gravatar/';
+                    $size = '100';
                     $rating = Helper::options()->commentsAvatarRating;
                     $hash = md5(strtolower($comments->mail));
                     $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d=';
                 ?>
                 <img class="avatar" src="<?php echo $avatar ?>">
-                <b class="fn <?php echo $commentClass; ?>" itemprop="author"><?php echo $author; ?></b>
+                <span class="<?php echo $commentClass; ?>"><?php echo $author; ?></span>
             </div>
 
-            <span class="comment-metadata">
-                <time datetime="2017-05-14T17:25:49+08:00" itemprop="datePublished"><?php $comments->date('M j, Y'); ?></time>
-            </span>
-
+            <span class="comment-metadata"><time><?php $comments->date('M j, Y'); ?></time></span>
             <span class="comment-actions"><?php $comments->reply('回复'); ?></span>
         </div>
-        <!-- .comment-meta -->
 
-        <div class="comment-content" itemprop="text">
-            <p>           
-            <?php 
+        <div class="comment-content">
+            <p><?php 
             get_comment_at($comments->coid);
             $cos = preg_replace('#\@\((.*?)\)#','<img src="/usr/themes/Casper-For-Typecho/newpaopao/$1.png" class="biaoqing">',$comments->content);
             $cos1 = preg_replace('#<p>#','',$cos);
             $cos2 = preg_replace('#</p>#','',$cos1);
-            echo $cos2;
-            ?>
-            </p>
+            echo $cos2; ?></p>
         </div>
     </article>
 
@@ -66,13 +58,12 @@ function threadedComments($comments, $options) {
 <div id="<?php $this->respondId(); ?>" class="comment-respond">
     <?php $this->comments()->to($comments); ?>
     <?php if($this->allow('comment')): ?>
-
-    <h3 id="reply-title" class="comment-reply-title">
+    <h3>
         <span>发表评论</span>
         <?php $comments->cancelReply('取消回复'); ?>
     </h3>
     
-    <form action="<?php $this->commentUrl() ?>" method="post" id="commentform" class="comment-form<?php $commentClass ?>">
+    <form action="<?php $this->commentUrl() ?>" method="post" class="comment-form<?php $commentClass ?>">
         <div class="comment-form-main">
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
                 <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required><?php $this->remember('text',false); ?></textarea>
@@ -97,16 +88,15 @@ function threadedComments($comments, $options) {
                     <label class="mdc-floating-label" for="url">网站</label>
                     <div class="mdc-line-ripple"></div>
                 </div>
+
+                 <button name="submit" type="submit" class="mdc-button mdc-button--stroked">提交</button> 
             </div>
          
-            <button name="submit" type="submit" class="mdc-button mdc-button--stroked">提交</button> 
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
-     
         </div>
         <!-- <div class="comment-form-extra">
             <span class="response"><?php if($this->user->hasLogin()): ?> You are <a href="<?php $this->options->profileUrl(); ?>" data-no-instant><?php $this->user->screenName(); ?></a> here, do you want to <a href="<?php $this->options->logoutUrl(); ?>" data-no-instant>logout</a> ?<?php endif; ?></span>
-            
         </div> -->
     </form>
 

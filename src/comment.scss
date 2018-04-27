@@ -3,6 +3,7 @@
 }
 
 .comment-form-main {
+    margin-bottom: 25px;
     textarea {
         height: 70px;
         min-height: 70px;
@@ -12,175 +13,9 @@
     }
 }
 
-.comment-form-author:after {
-    content: "*";
-    color: #F44336;
-    vertical-align: sub;
-}
-
-.comment-list .pingback .comment-type:before,
-.comment-reply-link:before {
-    display: inline-block;
-    font-family: "Material Icons";
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    text-rendering: optimizeLegibility;
-    font-feature-settings: "liga"
-}
-
-.comments-title {
-    margin: 1em 0;
-    font-size: 40px;
-    font-weight: 400;
-    color: #222;
-    text-align: center
-}
-
-.token.comment,
-.token.doctype,
-.token.prolog {
-    color: #708090
-}
-
-.comment-respond {
-    padding-top: 1px;
-    font-size: 14px
-}
-
-.comments-closed {
-    margin: 40px 0;
-    color: #666;
-    text-align: center
-}
-
-.no-comments {
-    padding: 100px 0;
-    color: #999;
-    text-align: center
-}
-
-#respond {
-    margin-bottom: 20px;
-    clear: both
-}
-
-#cancel-comment-reply-link {
-    position: relative;
-    bottom: -15px;
-    float: right;
-    font-weight: 400
-}
-
-#commentform {
-    margin-bottom: 50px;
-}
-
-#commentform .required {
-    position: absolute;
-    top: 13px;
-    right: 6px;
-    font-size: 22px;
-    line-height: 1em;
-    color: #F44336;
-    pointer-events: none
-}
-
-#commentform.guest-must-log-in {
-    margin-left: 0;
-    background: #FFF;
-    border-radius: 2px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .2)
-}
-
-#commentform.guest-must-log-in .author-info {
-    position: static;
-    float: left
-}
-
-#commentform.guest-must-log-in .must-log-in {
-    margin-bottom: 0;
-    line-height: 100px;
-    text-align: center
-}
-
-.author-info {
-    position: absolute;
-    top: 0;
-    left: -100px;
-    z-index: 2;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    background: #F7F7F7;
-    border-radius: 2px 0 0 2px
-}
-
-.author-info .avatar {
-    width: 100%;
-    height: 100%
-}
-
-.author-info .logged-in-as {
-    position: absolute;
-    right: 0;
-    bottom: -30px;
-    left: 0;
-    padding: 2px;
-    margin: 0;
-    font-size: 12px;
-    color: #FFF;
-    text-align: center;
-    background: rgba(0, 0, 0, .6);
-    -webkit-transition: bottom .3s ease-out;
-    transition: bottom .3s ease-out
-}
-
-.author-info .logged-in-as a {
-    color: #FFF
-}
-
-.author-info:hover .logged-in-as {
-    bottom: 0
-}
-
-.comment-textarea-wrapper {
-    height: 100%;
-}
-
-.comment-form-comment {
-    padding: 10px 10px 0;
-    margin: 0
-}
-
-.comment-form-comment label {
-    display: none
-}
-
-.comment-notes {
-    display: none
-}
-
-.form-submit {
-    margin: 0
-}
-
 .comment-form-extra {
     margin-bottom: 10px;
     clear: both
-}
-
-#comment_mail_notify {
-    margin-right: .3em
-}
-
-.comment-list {
-    padding: 0;
-    margin-left: 60px;
-    list-style: none
 }
 
 .comment-body {
@@ -190,9 +25,29 @@
     .comment-meta {
         padding-top: 4px
     }
+    .comment-author {
+        display: inline;
+        color: $gray-deep;
+        .avatar {
+            position: absolute;
+            top: 5px;
+            left: -60px;
+            width: 45px;
+            border-radius: 50%
+        }
+        .comment-by-author:after {
+            margin-left: 5px;
+            padding: 0 4px;
+            font-size: 12px;
+            color: white;
+            content: "博主";
+            background: $gray-light;
+            border-radius: 3px
+        }
+    }
     .comment-metadata {
         font-size: 12px;
-        color: #999
+        color: $gray-middle
     }
     .comment-actions {
         visibility: hidden;
@@ -201,7 +56,7 @@
         transition: .3s;
         a {
             margin-left: .7em;
-            color: #999;
+            color: $gray-middle;
             &:hover {
                 color: $themes-color;
             }
@@ -211,69 +66,13 @@
         visibility: visible;
         opacity: 1
     }
-}
-
-.comment-author {
-    display: inline
-}
-
-.comment-author .avatar {
-    position: absolute;
-    top: 4px;
-    left: -60px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%
-}
-
-.comment-author .fn {
-    font-weight: 400
-}
-
-.comment-author .fn a {
-    color: #333
-}
-
-.comment-by-author:after {
-    margin-left: 5px;
-    padding: 0 4px;
-    font-size: 12px;
-    color: #FFF;
-    content: "博主";
-    background: #CCC;
-    border-radius: 3px
-}
-
-.comment-awaiting-moderation {
-    float: right;
-    margin: 0;
-    font-size: 12px;
-    color: #F44336
-}
-
-.comment-content {
-    word-wrap: break-word
-}
-
-.comment-content p {
-    margin: .2em 0
-}
-
-.comment-content a {
-    color: #333
-}
-
-.comment-reply-link:before {
-    margin-right: .1em;
-    font-size: 16px;
-    vertical-align: middle;
-    content: "\E15E"
-}
-
-.comment-navigation {
-    margin: 20px 0
-}
-
-.comment-navigation .loading {
-    margin-bottom: 14px
+    .comment-content {
+        word-wrap: break-word;
+        p {
+            margin: .2em 0
+        }
+        a {
+            color: $gray-deep;
+        }
+    }
 }
