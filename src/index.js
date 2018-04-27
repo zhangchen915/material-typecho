@@ -4,6 +4,7 @@ import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-java'
 import Zooming from 'zooming'
+import Pjax from 'Pjax'
 import {
     MDCRipple
 } from '@material/ripple/index'
@@ -23,6 +24,11 @@ if(textField){
         new MDCTextField(e);
     })
 }
+
+new Pjax({
+    elements: "a",
+    selectors: [".pjax-content"]
+})
 
 window.requestAnimFrame = (callback => {
     return window.requestAnimationFrame ||

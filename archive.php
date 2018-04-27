@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('common/header.php'); ?>
 
-<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9" id="main" role="main">
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content" id="main" role="main">
     <h3 class="archive-title"><?php $this->archiveTitle(array(
         'search'    =>  _t('包含关键字 %s 的文章'),
         'tag'       =>  _t('标签 %s 下的文章'),

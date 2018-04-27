@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('common/header.php'); ?>
 
-<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9" id="main" role="main">
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content" id="main" role="main">
     <article class="post type-post">
         <h1 class="post-title page-h1" itemprop="name headline"><a itemtype="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h1>
        <?php $this->widget('Widget_Contents_Post_Recent', 'pageSize=10000')->to($archives);   
