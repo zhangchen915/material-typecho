@@ -1,4 +1,5 @@
 $themes-color: #429E46;
+$mdc-theme-primary:$themes-color;
 $header-bg: #429E46;
 $gray-deep: #333;
 $gray-middle: #999;
@@ -82,20 +83,6 @@ table {
 td {
     border: 1px solid #ddd;
     padding: 2px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-textarea {
-    padding: 5px;
-    border: 1px solid #E9E9E9;
-    width: 100%;
-    border-radius: 2px;
-    box-sizing: border-box;
-    height: 30px;
-    outline: none;
 }
 
 .hidden {

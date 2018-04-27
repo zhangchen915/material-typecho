@@ -17,7 +17,12 @@ document.querySelectorAll('.mdc-button').forEach(e => {
     MDCRipple.attachTo(e);
 })
 
-new MDCTextField(document.querySelector('.mdc-text-field'));
+const textField=document.querySelectorAll('.mdc-text-field')
+if(textField){
+    textField.forEach(e=>{
+        new MDCTextField(e);
+    })
+}
 
 window.requestAnimFrame = (callback => {
     return window.requestAnimationFrame ||

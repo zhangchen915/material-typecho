@@ -18,9 +18,8 @@ function threadedComments($comments, $options) {
 ?>
 
 <li id="li-<?php $comments->theId(); ?>" class="comment even thread-even depth-<?php echo $depth ?> <?php $comments->alt(' comment-odd', 'comment-even');?>">
-    
     <article id="<?php $comments->theId(); ?>" class="comment-body">
-        <footer class="comment-meta">
+        <div class="comment-meta">
             <div class="comment-author vcard">
                 <?php
                     $host = 'https://cdn.v2ex.com'; //自定义头像CDN服务器
@@ -31,20 +30,15 @@ function threadedComments($comments, $options) {
                     $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d=';
                 ?>
                 <img class="avatar" src="<?php echo $avatar ?>">
-                <b class="fn <?php echo $commentClass; ?>" itemprop="author">
-                <?php echo $author; ?>
-                </b>
+                <b class="fn <?php echo $commentClass; ?>" itemprop="author"><?php echo $author; ?></b>
             </div>
-            <!-- .comment-author -->
 
-            <div class="comment-metadata">
-                <a href="" itemprop="url">
-                    <time datetime="2017-05-14T17:25:49+08:00" itemprop="datePublished"><?php $comments->date('M j, Y'); ?></time>
-                </a>
-            </div>
-            <!-- .comment-metadata -->
+            <span class="comment-metadata">
+                <time datetime="2017-05-14T17:25:49+08:00" itemprop="datePublished"><?php $comments->date('M j, Y'); ?></time>
+            </span>
 
-        </footer>
+            <span class="comment-actions"><?php $comments->reply('回复'); ?></span>
+        </div>
         <!-- .comment-meta -->
 
         <div class="comment-content" itemprop="text">
@@ -58,13 +52,7 @@ function threadedComments($comments, $options) {
             ?>
             </p>
         </div>
-        <!-- .comment-content -->
-
-        <div class="comment-actions" style="visibility: visible;opacity: 1;">
-            <?php $comments->reply('回复'); ?>
-        <!-- .comment-actions -->
     </article>
-    
 
     <?php if ($comments->children) { ?>
         <div class="children">
@@ -87,24 +75,31 @@ function threadedComments($comments, $options) {
     <form action="<?php $this->commentUrl() ?>" method="post" id="commentform" class="comment-form<?php $commentClass ?>">
         <div class="comment-form-main">
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
-                <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required="required"><?php $this->remember('text',false); ?></textarea>
+                <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required><?php $this->remember('text',false); ?></textarea>
                 <label for="textarea" class="mdc-floating-label">输入评论</label>
             </div>
                         
             <div class="comment-form-fields">
-                <span class="comment-form-author">
-                    <input type="text" name="author" maxlength="12" id="author" placeholder="昵称" value="" required>
-                </span>
+                <div class="mdc-text-field">
+                    <input type="text" id="author" class="mdc-text-field__input" name="author" maxlength="12" required>
+                    <label class="mdc-floating-label" for="author">昵称</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
 
-                <span class="comment-form-email">
-                    <input type="email" name="mail" id="mail" placeholder="邮箱" value="" <?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>>
-                </span>
-                <span class="comment-form-url">
-                    <input type="url" name="url" id="url" placeholder="网站" value="" <?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?>>
-                </span>
+                <div class="mdc-text-field">
+                    <input type="email" name="mail" id="mail" class="mdc-text-field__input" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?>>
+                    <label class="mdc-floating-label" for="mail">邮箱</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+
+                <div class="mdc-text-field">
+                    <input type="url" name="url" id="url" class="mdc-text-field__input" <?php if ($this->options->commentsRequireURL): ?>required<?php endif; ?>>
+                    <label class="mdc-floating-label" for="url">网站</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
             </div>
          
-            <button name="submit" type="submit" id="submit" class="submit"></button> 
+            <button name="submit" type="submit" class="mdc-button mdc-button--stroked">提交</button> 
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
      
