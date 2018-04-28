@@ -127,7 +127,6 @@
     position: relative;
     margin-top: 15px;
     input {
-        padding-right: 30px;
         outline: none;
         border: none;
         &:focus+hr {
@@ -137,12 +136,11 @@
     button {
         position: absolute;
         right: 4px;
-        top: 2px;
+        top: 0;
         border: none;
         outline: none;
-        padding: 0;
         width: 24px;
-        height: 26px;
+        height: 18px;
         background: transparent url(./img/icon-search.png) no-repeat center center;
         cursor: pointer;
     }
@@ -441,8 +439,8 @@
     &.CC-BY-NC {
         background-image: url('./licensed/CC-BY-NC.svg')
     }
-    &.CC-BY-NC-SA {
-        background-image: url('./licensed/CC-BY-NC-SA.svg')
+    &.CC-BY-ND {
+        background-image: url('./licensed/CC-BY-ND.svg')
     }
     &.CC-BY-NC-ND {
         background-image: url('./licensed/CC-BY-NC-ND.svg')
