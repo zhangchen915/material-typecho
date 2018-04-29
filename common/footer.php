@@ -1,6 +1,6 @@
 </div>
 
-<div id="goTop" class="mdc-fab">
+<div id="goTop" class="mdc-fab fab-hidden">
 	<div class="arrow"></div>
 	<div class="stick"></div>
 </div>

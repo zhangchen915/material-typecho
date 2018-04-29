@@ -1,4 +1,6 @@
-import { MDCPersistentDrawer } from '@material/drawer';
+import {
+    MDCPersistentDrawer
+} from '@material/drawer';
 
 const toggle = document.querySelector('#toggle');
 const MDCdrawer = new MDCPersistentDrawer(document.querySelector('.mdc-drawer--persistent'));

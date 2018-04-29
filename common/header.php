@@ -79,8 +79,8 @@
         <?php if(is_mobile()) : ?>
         <div class="header-right">
             <form id="search" method="post" action="./" role="search">
-                <input type="text" name="s" class="text" autocomplete="off" placeholder="输入关键字搜索" />
-                <hr/><hr/><button type="submit" class="submit"></button>
+                <input type="text" name="s" class="text" autocomplete="off" />
+                <button type="submit" class="submit"></button>
             </form>
         </div>
         <?php endif;?>

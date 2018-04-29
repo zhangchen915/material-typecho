@@ -130,6 +130,7 @@
     input {
         outline: none;
         border: none;
+        height: 20px;
         &:focus+hr {
             transform: scale3d(1, 1, 1);
         }
@@ -141,7 +142,7 @@
         border: none;
         outline: none;
         width: 24px;
-        height: 18px;
+        height: 20px;
         background: transparent url(./img/icon-search.png) no-repeat center center;
         cursor: pointer;
     }
