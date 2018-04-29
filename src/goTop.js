@@ -2,11 +2,11 @@ let goTop = document.querySelector('#goTop');
 let showGoTop = false;
 window.addEventListener('scroll', e => {
     const top = document.body.scrollTop | document.documentElement.scrollTop;
-    if (top > 200 && !showGoTop) {
-        goTop.className = '';
+    if (top > 600 && !showGoTop) {
+        goTop.classList.remove('fab-hidden');
         showGoTop = true;
-    } else if (top < 200 && showGoTop) {
-        goTop.className = 'mbtop';
+    } else if (top < 600 && showGoTop) {
+        goTop.classList.add('fab-hidden');
         showGoTop = false;
     }
 });
