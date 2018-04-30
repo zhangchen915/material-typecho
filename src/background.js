@@ -15,6 +15,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}, false);
+
 class Dot {
     constructor() {
         this.x = Math.random() * canvas.width;
