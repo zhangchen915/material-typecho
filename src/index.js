@@ -1,4 +1,6 @@
-import 'prismjs'
+import {
+    highlightAll
+} from 'prismjs'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-python'
@@ -43,6 +45,8 @@ window.onload = () => {
         bgColor: 'rgba(26,26,26,.65)',
         enableGrab: false
     }).listen('.post-content img');
+
+    document.addEventListener('pjax:success', highlightAll);
 };
 
 document.addEventListener('copy', e => {

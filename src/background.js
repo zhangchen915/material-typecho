@@ -12,13 +12,17 @@ window.requestAnimFrame = (callback => {
 let canvasColor = '#429E46';
 let canvas = document.querySelector('.connecting-dots');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-window.addEventListener("resize", () => {
+function draw() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-}, false);
+
+    ctx.lineWidth = .1;
+    ctx.fillStyle = canvasColor;
+    ctx.strokeStyle = canvasColor;
+}
+
+window.addEventListener("resize", draw, false);
 
 class Dot {
     constructor() {
@@ -74,9 +78,7 @@ class Dot {
 }
 
 export function render() {
-    ctx.lineWidth = .1;
-    ctx.fillStyle = canvasColor;
-    ctx.strokeStyle = canvasColor;
+    draw();
 
     let mousePosition = {
         x: 30 * canvas.width / 100,
