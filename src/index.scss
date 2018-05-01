@@ -4,6 +4,7 @@
 @import '@material/ripple/mdc-ripple.scss';
 @import '@material/list/mdc-list.scss';
 @import '@material/textfield/mdc-text-field.scss';
+@import '@material/select/mdc-select.scss';
 @import '@material/fab/mdc-fab.scss';
 @import '@material/drawer/mdc-drawer.scss';
 @import './comment.scss';
@@ -18,6 +19,9 @@
     min-width: 320px;
     padding: 0;
     margin: 0 auto;
+    &.mdc-layout-grid {
+        padding-top: 70px
+    }
 }
 
 .connecting-dots {
@@ -74,10 +78,6 @@
     }
 }
 
-.mdc-button.color-filled-button {
-    @include mdc-button-filled-accessible($themes-color);
-}
-
 #toggle {
     width: 25px;
     float: left;
@@ -118,10 +118,6 @@
             }
         }
     }
-}
-
-.mdc-layout-grid {
-    padding-top: 70px
 }
 
 #search {
@@ -369,6 +365,9 @@
                 text-decoration: none;
             }
         }
+    }
+    .mdc-select {
+        width: 100%;
     }
     &.widget-tag {
         position: sticky;

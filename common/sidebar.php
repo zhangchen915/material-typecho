@@ -43,10 +43,14 @@
         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArchive', $this->options->sidebarBlock)): ?>
             <section class="widget">
                 <h3>归档</h3>
-                <ul class="mdc-list">
-                    <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
-                    ->parse('<li><a href="{permalink}">{date}</a></li>'); ?>
-                </ul>
+                <div class="mdc-select">
+                    <select class="mdc-select__native-control">
+                        <option value="">请选择归档</option>
+                        <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')
+                        ->parse('<option value="{permalink}">{date}</option>'); ?>
+                    </select>
+                    <div class="mdc-line-ripple"></div>
+                </div>
             </section>
         <?php endif; ?>
 

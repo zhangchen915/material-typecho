@@ -18,15 +18,28 @@ import './goTop';
 import './index.scss';
 import 'prismjs/themes/prism.css';
 
-document.querySelectorAll('.mdc-button').forEach(e => {
-    MDCRipple.attachTo(e);
-})
+document.querySelector('select').onchange=(e)=>{
+    if (e.target.value) {
+        const pjax = new Pjax();
+        if (!pjax.options.requestOptions) {
+            pjax.options.requestOptions = {};
+        }
+        new Pjax().loadUrl(e.target.value);
+    }
+}
 
-document.querySelectorAll('.mdc-text-field').forEach(e => {
-    new MDCTextField(e);
-})
+function initMdc() {
+    document.querySelectorAll('.mdc-button').forEach(e => {
+        MDCRipple.attachTo(e);
+    })
+
+    document.querySelectorAll('.mdc-text-field').forEach(e => {
+        new MDCTextField(e);
+    })
+}
 
 window.onload = () => {
+    initMdc();
     if (navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
         import ('./drawer').then();
     } else {
@@ -46,7 +59,10 @@ window.onload = () => {
         enableGrab: false
     }).listen('.post-content img');
 
-    document.addEventListener('pjax:success', highlightAll);
+    document.addEventListener('pjax:success', () => {
+        highlightAll();
+        initMdc();
+    });
 };
 
 document.addEventListener('copy', e => {
