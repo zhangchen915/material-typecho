@@ -18,16 +18,6 @@ import './goTop';
 import './index.scss';
 import 'prismjs/themes/prism.css';
 
-document.querySelector('select').onchange=(e)=>{
-    if (e.target.value) {
-        const pjax = new Pjax();
-        if (!pjax.options.requestOptions) {
-            pjax.options.requestOptions = {};
-        }
-        new Pjax().loadUrl(e.target.value);
-    }
-}
-
 function initMdc() {
     document.querySelectorAll('.mdc-button').forEach(e => {
         MDCRipple.attachTo(e);
@@ -46,9 +36,13 @@ window.onload = () => {
         import ('./background').then(background => {
             background.render();
         })
+
+        document.querySelector('select').onchange = (e) => {
+            if (e.target.value) pjax.loadUrl(e.target.value);
+        }
     }
 
-    new Pjax({
+    const pjax = new Pjax({
         elements: "a",
         selectors: ['.pjax-header', '.pjax-content']
     })
