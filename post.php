@@ -15,25 +15,22 @@
             <?php $this->content(); ?>
         </div>
 
-        <div class="creative-commons <?php echo $this->options->CC ?>"></div>
-        <div itemprop="keywords" class="tags">标签：<?php $this->tags(', ', true, '无'); ?></div>
+        <div class="post-footer">
+            <div class="creative-commons <?php echo $this->options->CC ?>"></div>
+            <div itemprop="keywords" class="post-tags">标签：<?php $this->tags(', ', true, '无'); ?></div>
 
-        <?php $this->related(4)->to($relatedPosts); ?>
-        <?php if ($relatedPosts->have()): ?>
-        <div class="related">
-            <h3>相关文章推荐</h3>
-            <ul class="clearfix">
-                <?php while ($relatedPosts->next()): ?>
-                <li><a href="<?php $relatedPosts->permalink(); ?>"><?php $relatedPosts->title(); ?></a></li>
-                <?php endwhile; ?>
-            </ul>
+            <?php $this->related(4)->to($relatedPosts); ?>
+            <?php if ($relatedPosts->have()): ?>
+            <div class="post-related">
+                <h3>相关文章</h3>
+                <ul class="clearfix">
+                    <?php while ($relatedPosts->next()): ?>
+                    <li><a href="<?php $relatedPosts->permalink(); ?>"><?php $relatedPosts->title(); ?></a></li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
-
-        <ul class="post-near">
-            <li>上一篇：<?php $this->thePrev('%s','没有了'); ?></li>
-            <li>下一篇：<?php $this->theNext('%s','没有了'); ?></li>
-        </ul>
     </article>
 
     <?php $this->need('common/comments.php'); ?>

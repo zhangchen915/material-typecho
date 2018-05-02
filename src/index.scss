@@ -230,39 +230,35 @@
             margin: 0 8px 0 0;
         }
     }
-    .post-near {
-        list-style: none;
-        margin: 20px 0 0;
-        padding: 0;
-        color: $gray-middle;
-        border-top: 1px solid $gray-light;
-        li {
-            margin: 5px 0;
-        }
-    }
 }
 
-.related {
-    h3 {
-        border-top: 1px solid $gray-light;
-        margin: 0;
-        color: $themes-color;
-        line-height: 32px;
+.post-footer {
+    .post-tags {
+        margin: 10px 0;
     }
-    ul {
-        padding-left: 0;
-        margin: 0;
-        li {
-            width: 50%;
-            list-style: inside disc;
-            float: left;
-            color: $gray-middle;
-        }
-        a {
-            color: $gray-deep;
-        }
-        a:hover {
+    .post-related {
+        h3 {
+            border-top: 1px solid $gray-light;
+            margin: 0;
             color: $themes-color;
+            line-height: 32px;
+        }
+        ul {
+            padding-left: 0;
+            margin: 0;
+            li {
+                width: 50%;
+                list-style: inside disc;
+                float: left;
+                color: $gray-middle;
+                @include line-ellipsis-style();
+            }
+            a {
+                color: $gray-deep;
+            }
+            a:hover {
+                color: $themes-color;
+            }
         }
     }
 }

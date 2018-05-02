@@ -1,4 +1,11 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+/**
+* 文章存档页
+*
+* @package custom
+*/
+
+if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('common/header.php'); ?>
 
 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content" id="main" role="main">
