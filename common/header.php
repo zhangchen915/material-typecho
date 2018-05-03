@@ -31,6 +31,11 @@
         <?php if($this->is('index')){echo " | "; $this->options->description(); }?>
     </title>
 
+    <style>
+        :root{
+            --mdc-theme-primary: <?php echo $this->options->color; ?>;
+        }
+    </style>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('dist/' . 'index' . '.css'); ?>">
 </head>
 

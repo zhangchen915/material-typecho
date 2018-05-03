@@ -10,6 +10,9 @@ function themeConfig($form) {
     $GA =  new Typecho_Widget_Helper_Form_Element_Text('GA', NULL, NULL, _t('GA号'), _t(''));
     $form->addInput($GA);
 
+    $color =  new Typecho_Widget_Helper_Form_Element_Text('color', NULL, '#429E46', _t('主题颜色'), _t(''));
+    $form->addInput($color);
+
     $CC = new Typecho_Widget_Helper_Form_Element_Radio('CC',
     array(
     'CC-BY' => _t('署名'),
