@@ -59,7 +59,7 @@ window.onload = () => {
     });
 };
 
-document.addEventListener('copy', e => {
+document.querySelector('.post-content').addEventListener('copy', e => {
     let author = document.querySelector('.logo a').textContent;
     const selection = window.getSelection()
     if (e.path[1].className === 'post-content') {

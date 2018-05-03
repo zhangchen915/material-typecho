@@ -1,6 +1,4 @@
-$themes-color: #429E46;
-$mdc-theme-primary:$themes-color;
-$header-bg: #429E46;
+$mdc-theme-primary:#429E46;
 $gray-deep: #333;
 $gray-middle: #999;
 $gray-light: #ddd;
@@ -12,8 +10,12 @@ $box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     text-overflow: ellipsis;
 }
 
+:root{
+    --mdc-theme-primary:#429E46;
+}
+
 ::selection {
-    background: $header-bg;
+    background: var(--mdc-theme-primary);
     color: white;
 }
 
@@ -49,7 +51,7 @@ body {
 }
 
 a {
-    color: $themes-color;
+    color: var(--mdc-theme-primary);
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -64,7 +66,7 @@ pre {
 
 code {
     font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", "Microsoft YaHei", "WenQuanYi Micro Hei";
-    color: $themes-color;
+    color: var(--mdc-theme-primary);
 }
 
 blockquote {
@@ -86,7 +88,7 @@ td {
 }
 
 select {
-    -moz-appearance:none;
+    -moz-appearance: none;
     -webkit-appearance: none;
 }
 

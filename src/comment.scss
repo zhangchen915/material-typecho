@@ -40,12 +40,13 @@
         color: $gray-deep;
     }
     .comment-by-author:after {
+        vertical-align: text-top;
         margin-left: 5px;
         padding: 0 4px;
         font-size: 12px;
         color: white;
         content: "博主";
-        background: $gray-deep;
+        background: $gray-middle;
         border-radius: 3px
     }
     .comment-metadata {
@@ -61,7 +62,7 @@
             margin-left: .7em;
             color: $gray-middle;
             &:hover {
-                color: $themes-color;
+                color: var(--mdc-theme-primary);
             }
         }
     }
