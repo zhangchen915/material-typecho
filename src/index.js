@@ -18,7 +18,18 @@ import './goTop';
 import './index.scss';
 import 'prismjs/themes/prism.css';
 
-function initMdc() {
+const zoom = new Zooming({
+    customSize: '125%',
+    bgColor: 'rgba(26,26,26,.65)',
+    enableGrab: false
+})
+
+const pjax = new Pjax({
+    elements: "a",
+    selectors: ['.pjax-header', '.pjax-content']
+})
+
+function init() {
     document.querySelectorAll('.mdc-button').forEach(e => {
         MDCRipple.attachTo(e);
     })
@@ -26,10 +37,12 @@ function initMdc() {
     document.querySelectorAll('.mdc-text-field').forEach(e => {
         new MDCTextField(e);
     })
+
+    zoom.listen('.post-content img');
 }
 
 window.onload = () => {
-    initMdc();
+    init();
     if (navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
         import ('./drawer').then();
     } else {
@@ -42,20 +55,9 @@ window.onload = () => {
         }
     }
 
-    const pjax = new Pjax({
-        elements: "a",
-        selectors: ['.pjax-header', '.pjax-content']
-    })
-
-    new Zooming({
-        customSize: '125%',
-        bgColor: 'rgba(26,26,26,.65)',
-        enableGrab: false
-    }).listen('.post-content img');
-
     document.addEventListener('pjax:success', () => {
         highlightAll();
-        initMdc();
+        init();
     });
 };
 
