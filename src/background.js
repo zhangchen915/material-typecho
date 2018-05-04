@@ -9,7 +9,8 @@ window.requestAnimFrame = (callback => {
         };
 })();
 
-let canvasColor = '#429E46';
+const root = getComputedStyle(document.documentElement);
+const canvasColor = root.getPropertyValue('--mdc-theme-primary').trim();
 let canvas = document.querySelector('.connecting-dots');
 const ctx = canvas.getContext('2d');
 
