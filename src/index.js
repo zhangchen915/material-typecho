@@ -14,7 +14,7 @@ import {
     MDCTextField
 } from '@material/textfield';
 
-import './goTop';
+import './scrollTop';
 import './index.scss';
 import 'prismjs/themes/prism.css';
 
