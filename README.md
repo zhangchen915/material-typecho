@@ -1,5 +1,21 @@
 ## material-typecho
 
-soures form 字节猫
+A material style typecho theam.
+No extra effects and animations, focus on reading.
+
+Use material-components-web and no Jquery.
+
+rewrite form 字节猫 and welcome PR.
+
+### feature
+
+- pjax
+- image zooming
+- code hightlight
+- Google analyze
+- CC listens
+
+### build
+`npm i`
 
 run `sh ./build.sh` then upload `release`.
