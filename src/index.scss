@@ -73,8 +73,7 @@
         text-decoration: none;
     }
     a:hover,
-    & .current {
-    }
+    & .current {}
 }
 
 #toggle {
@@ -121,40 +120,24 @@
 
 #search {
     position: relative;
-    margin-top: 15px;
+    margin-top: 12px;
     input {
+        width: 0;
         outline: none;
-        border: none;
-        height: 20px;
-        &:focus+hr {
-            transform: scale3d(1, 1, 1);
-        }
-    }
-    button {
-        position: absolute;
-        right: 4px;
-        top: 0;
-        border: none;
-        outline: none;
-        width: 24px;
-        height: 20px;
-        background: transparent url(./img/icon-search.png) no-repeat center center;
+        border: solid;
+        border-color: transparent;
+        border-width: 0 0 1px 0;
+        padding: 10px 30px 10px 10px;
         cursor: pointer;
-    }
-    hr {
-        box-sizing: content-box;
-        margin: 0px;
-        position: absolute;
-        width: 100%;
-        &:first-of-type {
-            border: solid var(--mdc-theme-primary);
-            border-width: 0 0 2px 0;
-            transform: scale3d(0, 0, 0);
-            transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-        }
-        &:last-of-type {
-            border: solid rgb(224, 224, 224);
-            border-width: 0 0 1px 0;
+        color: white;
+        background: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1Ni45NjYgNTYuOTY2IiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTU1LjE0NiA1MS44ODctMTMuNTU4LTE0LjEwMWMzLjQ4Ni00LjE0NCA1LjM5Ni05LjM1OCA1LjM5Ni0xNC43ODYgMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMyAxMC4zMTgtMjMgMjMgMTAuMzE4IDIzIDIzIDIzYzQuNzYxIDAgOS4yOTgtMS40MzYgMTMuMTc3LTQuMTYybDEzLjY2MSAxNC4yMDhjLjU3MS41OTMgMS4zMzkuOTIgMi4xNjIuOTIuNzc5IDAgMS41MTgtLjI5NyAyLjA3OS0uODM3IDEuMTkyLTEuMTQ3IDEuMjMtMy4wNDkuMDgzLTQuMjQyem0tMzEuMTYyLTQ1Ljg4N2M5LjM3NCAwIDE3IDcuNjI2IDE3IDE3cy03LjYyNiAxNy0xNyAxNy0xNy03LjYyNi0xNy0xNyA3LjYyNi0xNyAxNy0xN3oiIGZpbGw9IiNmZmYiLz48L3N2Zz4=) no-repeat;
+        background-position: right;
+        background-size: 25px;
+        transition: all .5s;
+        &:focus {
+            width: 130px;
+            border-color: white;
+            cursor: auto;
         }
     }
 }
@@ -445,7 +428,6 @@
     }
 }
 
-//footer
 #goTop {
     position: fixed;
     right: 50px;

@@ -1,16 +1,4 @@
 <aside class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-4-phone" role="complementary">
-    <?php if(!is_mobile()) :?>
-        <?php if (!empty($this->options->sidebarBlock) && in_array('ShowSearch', $this->options->sidebarBlock)): ?>
-        <section class="widget widget_search">
-            <h3>文章搜索</h3>
-            <form id="search" method="post" action="./" role="search">
-                <input type="text" name="s" class="text" autocomplete="off" placeholder="输入关键字搜索" />
-                <hr/><hr/><button type="submit" class="submit"></button>
-            </form>
-        </section>
-        <?php endif; ?> 
-    <?php endif; ?> 
-
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)): ?>
         <section class="widget">
             <h3>文章分类</h3>
