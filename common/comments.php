@@ -1,4 +1,11 @@
 <?php function threadedComments($comments, $options) {
+    $host = 'https://cdn.v2ex.com';
+    $url = '/gravatar/';
+    $size = '100';
+    $rating = Helper::options()->commentsAvatarRating;
+    $hash = md5(strtolower($comments->mail));
+    $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d=';
+
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -18,17 +25,7 @@
 
 <li id="li-<?php $comments->theId(); ?>" class="comment even thread-even depth-<?php echo $depth ?> <?php $comments->alt(' comment-odd', 'comment-even');?>">
     <article id="<?php $comments->theId(); ?>" class="comment-body">
-        <div class="comment-avatar">
-            <?php
-                $host = 'https://cdn.v2ex.com';
-                $url = '/gravatar/';
-                $size = '100';
-                $rating = Helper::options()->commentsAvatarRating;
-                $hash = md5(strtolower($comments->mail));
-                $avatar = $host . $url . $hash . '?s=' . $size . '&r=' . $rating . '&d=';
-            ?>
-            <img src="<?php echo $avatar ?>">
-        </div>
+        <div class="comment-avatar" style="background-image: url('<?php echo $avatar ?>')"></div>
 
         <div class="comment-content">
             <div>
@@ -36,13 +33,7 @@
                 <span class="comment-metadata"><time><?php $comments->date('M j, Y'); ?></time></span>
                 <span class="comment-actions"><?php $comments->reply('回复'); ?></span>
             </div>
-
-            <p><?php 
-            get_comment_at($comments->coid);
-            $cos = preg_replace('#\@\((.*?)\)#','<img src="/usr/themes/Casper-For-Typecho/newpaopao/$1.png" class="biaoqing">',$comments->content);
-            $cos1 = preg_replace('#<p>#','',$cos);
-            $cos2 = preg_replace('#</p>#','',$cos1);
-            echo $cos2; ?></p>
+            <?php $comments->content(); ?>
         </div>
     </article>
 

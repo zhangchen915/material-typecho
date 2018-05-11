@@ -30,11 +30,13 @@
     min-height: 60px;
     margin: 15px 0;
     .comment-avatar {
+        width: 45px;
+        height: 45px;
         margin-right: 10px;
-        img {
-            width: 45px;
-            border-radius: 50%
-        }
+        border-radius: 50%;
+        background-color: $gray-light;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     .comment-author a {
         color: $gray-deep;
@@ -71,6 +73,7 @@
         opacity: 1
     }
     .comment-content {
+        flex: 1;
         word-wrap: break-word;
         p {
             margin: .2em 0
