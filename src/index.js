@@ -50,7 +50,7 @@ window.onload = () => {
             background.render();
         })
 
-        document.querySelector('select').onchange = (e) => {
+        document.querySelector('select').onchange = e => {
             if (e.target.value) pjax.loadUrl(e.target.value);
         }
     }

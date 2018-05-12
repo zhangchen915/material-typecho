@@ -44,8 +44,7 @@ class Dot {
     }
 
     static animate(dots) {
-        for (let i = 0; i < dots.nb; i++) {
-            let dot = dots.content[i];
+        dots.map(dot => {
             if (dot.y < 0 || dot.y > canvas.height) {
                 dot.vx = dot.vx;
                 dot.vy = -dot.vy;
@@ -55,26 +54,23 @@ class Dot {
             }
             dot.x += dot.vx;
             dot.y += dot.vy;
-        }
+        });
     }
 
-    static line(dots, mousePosition) {
-        for (let i = 0; i < dots.nb; i++) {
-            for (let j = 0; j < dots.nb; j++) {
-                const i_dot = dots.content[i];
-                const j_dot = dots.content[j];
-
-                if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > -dots.distance && (i_dot.y - j_dot.y) > -dots.distance) {
-                    if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > -dots.d_radius && (i_dot.y - mousePosition.y) > -dots.d_radius) {
+    static line(dots, mousePosition, distance = 60, radius = 100) {
+        dots.forEach(iDot => {
+            dots.forEach(jDot => {
+                if ((iDot.x - jDot.x) < distance && (iDot.y - jDot.y) < distance && (iDot.x - jDot.x) > -distance && (iDot.y - jDot.y) > -distance) {
+                    if ((iDot.x - mousePosition.x) < radius && (iDot.y - mousePosition.y) < radius && (iDot.x - mousePosition.x) > -radius && (iDot.y - mousePosition.y) > -radius) {
                         ctx.beginPath();
-                        ctx.moveTo(i_dot.x, i_dot.y);
-                        ctx.lineTo(j_dot.x, j_dot.y);
+                        ctx.moveTo(iDot.x, iDot.y);
+                        ctx.lineTo(jDot.x, jDot.y);
                         ctx.stroke();
                         ctx.closePath();
                     }
                 }
-            }
-        }
+            });
+        });
     }
 }
 
@@ -82,41 +78,24 @@ export function render() {
     draw();
 
     let mousePosition = {
-        x: 30 * canvas.width / 100,
-        y: 30 * canvas.height / 100
+        x: innerWidth / 2,
+        y: innerHeight / 2
     };
 
-    let dots = {
-        nb: 600,
-        distance: 60,
-        d_radius: 100,
-        content: []
-    };
-
-    function createDots() {
-        for (let i = 0; i < dots.nb; i++) {
-            dots.content.push(new Dot());
-        }
-    }
-
-    function loop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < dots.nb; i++) {
-            dots.content[i].create();
-        }
-        Dot.line(dots, mousePosition);
-        Dot.animate(dots);
-        requestAnimationFrame(loop);
-    }
+    let dots = Array.from(Array(600)).map(() => new Dot());
 
     window.onmousemove = e => {
         mousePosition.x = e.x;
         mousePosition.y = e.y;
     };
 
-    mousePosition.x = window.innerWidth / 2;
-    mousePosition.y = window.innerHeight / 2;
-
-    createDots();
-    loop();
+    (function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        dots.forEach(e => {
+            e.create();
+        });
+        Dot.line(dots, mousePosition);
+        Dot.animate(dots);
+        requestAnimationFrame(loop);
+    })()
 };
