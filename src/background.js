@@ -58,8 +58,11 @@ class Dot {
     }
 
     static line(dots, mousePosition, distance = 60, radius = 100) {
-        dots.forEach(iDot => {
-            dots.forEach(jDot => {
+        const dotsLength = dots.length;
+        for (let i = 0; i < dotsLength; i++) {
+            for (let j = 0; j < dotsLength; j++) {
+                const iDot = dots[i];
+                const jDot = dots[j];
                 if ((iDot.x - jDot.x) < distance && (iDot.y - jDot.y) < distance && (iDot.x - jDot.x) > -distance && (iDot.y - jDot.y) > -distance) {
                     if ((iDot.x - mousePosition.x) < radius && (iDot.y - mousePosition.y) < radius && (iDot.x - mousePosition.x) > -radius && (iDot.y - mousePosition.y) > -radius) {
                         ctx.beginPath();
@@ -69,8 +72,9 @@ class Dot {
                         ctx.closePath();
                     }
                 }
-            });
-        });
+            }
+
+        }
     }
 }
 
