@@ -10,6 +10,7 @@ rewrite form 字节猫 and welcome PR.
 ### feature
 
 - pjax
+- custome theam color
 - image zooming
 - code hightlight
 - Google analyze
