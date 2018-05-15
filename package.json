@@ -2,15 +2,14 @@
   "name": "material-typecho",
   "version": "1.0.0",
   "description": "typecho theam",
-  "main": "",
   "scripts": {
-    "parcel": "parcel build ./src/index.js",
+    "parcel": "parcel build ./src/index.js --no-source-maps",
     "build": "npm run parcel && sh ./build.sh"
   },
   "author": "zhangchen915",
-  "license": "ISC",
+  "license": "GPL",
   "dependencies": {
-    "material-components-web": "^0.34.1",
+    "material-components-web": "^0.35.1",
     "pjax": "^0.2.6",
     "prismjs": "^1.14.0",
     "zooming": "^2.0.0"
