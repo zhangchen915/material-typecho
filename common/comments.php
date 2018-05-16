@@ -80,7 +80,7 @@
                     <div class="mdc-line-ripple"></div>
                 </div>
 
-                 <button name="submit" type="submit" class="mdc-button mdc-button--stroked">提交</button> 
+                 <button name="submit" type="submit" class="mdc-button mdc-button--outlined mdc-ripple-upgraded">提交</button> 
             </div>
          
             <?php $security = $this->widget('Widget_Security'); ?>
