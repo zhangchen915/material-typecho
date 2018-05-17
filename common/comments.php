@@ -62,25 +62,30 @@
             </div>
                         
             <div class="comment-form-fields">
-                <div class="mdc-text-field">
-                    <input type="text" id="author" class="mdc-text-field__input" name="author" maxlength="12" required>
-                    <label class="mdc-floating-label" for="author">昵称</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-text-field mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-12-phone">
+                        <input type="text" id="author" class="mdc-text-field__input" name="author" maxlength="12" required>
+                        <label class="mdc-floating-label" for="author">昵称</label>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
 
-                <div class="mdc-text-field">
-                    <input type="email" name="mail" id="mail" class="mdc-text-field__input" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?>>
-                    <label class="mdc-floating-label" for="mail">邮箱</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>
+                    <div class="mdc-text-field mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-12-phone">
+                        <input type="email" name="mail" id="mail" class="mdc-text-field__input" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?>>
+                        <label class="mdc-floating-label" for="mail">邮箱</label>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
 
-                <div class="mdc-text-field">
-                    <input type="url" name="url" id="url" class="mdc-text-field__input" <?php if ($this->options->commentsRequireURL): ?>required<?php endif; ?>>
-                    <label class="mdc-floating-label" for="url">网站</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>
+                    <div class="mdc-text-field mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-12-phone">
+                        <input type="url" name="url" id="url" class="mdc-text-field__input" <?php if ($this->options->commentsRequireURL): ?>required<?php endif; ?>>
+                        <label class="mdc-floating-label" for="url">网站</label>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
 
-                 <button name="submit" type="submit" class="mdc-button mdc-button--outlined mdc-ripple-upgraded">提交</button> 
+                    <button name="submit" type="submit" class="mdc-button mdc-button--outlined 
+                                                               mdc-ripple-upgraded mdc-layout-grid__cell--span-2
+                                                               mdc-layout-grid__cell--span-12-phone
+                                                               mdc-layout-grid__cell--align-middle">提交</button> 
+                </div>
             </div>
          
             <?php $security = $this->widget('Widget_Security'); ?>

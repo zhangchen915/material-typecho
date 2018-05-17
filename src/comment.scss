@@ -9,7 +9,11 @@
         min-height: 70px;
     }
     .comment-form-fields {
+        width: 100%;
         display: inline-block;
+        .mdc-text-field {
+            margin-top: 0;
+        }
     }
 }
 
