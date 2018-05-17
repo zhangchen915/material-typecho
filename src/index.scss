@@ -211,6 +211,22 @@
             margin: 0 8px 0 0;
         }
     }
+    &:empty {
+        height: 300px;
+        background-repeat: no-repeat;
+        background-image: linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient( lightgray 30px, transparent 0), linear-gradient( lightgray 10px, transparent 0), linear-gradient( lightgray 20px, transparent 0), linear-gradient( lightgray 20px, transparent 0);
+        background-size: 50px 200px, /* highlight */
+        150px 200px, 350px 200px, 300px 200px, 250px 200px;
+        background-position: 0 0, /* highlight */
+        120px 0, 120px 60px, 120px 80px, 120px 120px;
+        animation: shine 1s infinite;
+    }
+    @keyframes shine {
+        to {
+            background-position: 100% 0, /* move highlight to right */
+            120px 0, 120px 60px, 120px 80px, 120px 120px;
+        }
+    }
 }
 
 .post-footer {

@@ -26,7 +26,15 @@ const zoom = new Zooming({
 
 const pjax = new Pjax({
     elements: "a",
-    selectors: ['.pjax-header', '.pjax-content']
+    selectors: ['.pjax-header', '.pjax-content'],
+    switches: {
+        ".pjax-content": (oldEl, newEl) => {
+            scrollTo(0, 0);
+            oldEl.innerHTML = '<article class="post"></article>';
+            this.onSwitch();
+            oldEl.outerHTML = newEl.outerHTML;
+        }
+    }
 })
 
 function init() {
