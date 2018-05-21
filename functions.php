@@ -28,6 +28,9 @@ function themeConfig($form) {
     array('ShowSearch' => _t('显示搜索框'),'ShowCategory' => _t('显示分类'),'ShowRecentPosts' => _t('显示最新文章'),'ShowArchive' => _t('显示归档'),'ShowTags' => _t('显示标签')),
     array('ShowSearch', 'ShowCategory', 'ShowRecentPosts', 'ShowTags'), _t('侧边栏显示'));
     $form->addInput($sidebarBlock->multiMode());
+
+    $links =  new Typecho_Widget_Helper_Form_Element_Textarea('links', NULL, '海屿 zhangchen915.com', _t('友链'), _t('名称+空格+域名'));
+    $form->addInput($links);
 }
 
 function is_mobile() {
