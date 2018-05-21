@@ -7,7 +7,7 @@
 
 $this->need('common/header.php'); ?>
 
-<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content" id="main" role="main">
+<main class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content">
     <article class="post type-post">
         <h1 class="post-title page-h1" itemprop="name headline">友情链接</h1>
         <ul>
@@ -20,7 +20,7 @@ $this->need('common/header.php'); ?>
         ?>
         </ul>
     </article>
-</div>
+</main>
 
 <?php $this->need('common/sidebar.php'); ?>
 <?php $this->need('common/footer.php'); ?>

@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('common/header.php'); ?>
 
-<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content" id="main" role="main">
+<main class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content">
     <div class="archive-title">
         <strong><?php echo $this->category(); ?></strong>
         <?php if ($this->getDescription()): ?>
@@ -9,7 +9,7 @@
         <?php endif; ?>
     </div> 
     <?php $this->need('common/search-content.php'); ?>
-</div>
+</main>
 
 <?php $this->need('common/sidebar.php'); ?>
 <?php $this->need('common/footer.php'); ?>

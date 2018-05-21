@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('common/header.php'); ?>
 
-<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content" id="main" role="main">
+<main class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content">
     <article class="post">
         <h1 class="post-title" itemprop="name headline"><?php $this->title() ?></h1>
         <ul class="post-meta">
@@ -34,7 +34,7 @@
     </article>
 
     <?php $this->need('common/comments.php'); ?>
-</div><!-- end #main-->
+</main>
 
 <?php $this->need('common/sidebar.php'); ?>
 <?php $this->need('common/footer.php'); ?>
