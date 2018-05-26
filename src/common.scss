@@ -1,4 +1,4 @@
-$mdc-theme-primary:#429E46;
+$mdc-theme-primary: #429E46;
 $gray-deep: #333;
 $gray-middle: #999;
 $gray-light: #ddd;
@@ -67,10 +67,9 @@ code {
 
 blockquote {
     margin: 1em .5em;
-    padding-left: 1.5em;
     border-left: 4px solid $gray-light;
     background-color: #F4F5F6;
-    padding: 1px 1em;
+    padding: 1em 1em 1em 1.5em;
 }
 
 table {
@@ -84,26 +83,10 @@ td {
 }
 
 select {
-    appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
 
 .hidden {
     display: none !important;
-}
-
-.clearfix:before,
-.clearfix:after,
-    {
-    content: ' ';
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    zoom: 1;
 }

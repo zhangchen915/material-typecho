@@ -9,7 +9,7 @@
   "author": "zhangchen915",
   "license": "GPL",
   "dependencies": {
-    "material-components-web": "^0.35.1",
+    "material-components-web": "^0.35.2",
     "pjax": "^0.2.6",
     "prismjs": "^1.14.0",
     "zooming": "^2.0.0"

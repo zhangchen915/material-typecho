@@ -104,7 +104,7 @@
     <div class="comment-separator"><div class="comment-tab-current"><span class="comment-num"><?php $this->commentsNum(_t('暂无评论'), _t('已有 1 条评论'), _t('已有 %d 条评论')); ?></span></div></div>
     <?php $comments->listComments(); ?>
 
-    <div class="lists-navigator clearfix">
+    <div class="lists-navigator">
         <?php $comments->pageNav('←','→','2','...'); ?>
     </div>
 

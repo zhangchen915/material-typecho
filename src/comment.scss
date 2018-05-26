@@ -38,9 +38,7 @@
         height: 45px;
         margin-right: 10px;
         border-radius: 50%;
-        background-color: $gray-light;
-        background-size: contain;
-        background-repeat: no-repeat;
+        background: $gray-light contain no-repeat;
     }
     .comment-author a {
         color: $gray-deep;

@@ -23,7 +23,7 @@
             <?php if ($relatedPosts->have()): ?>
             <div class="post-related">
                 <h3>相关文章</h3>
-                <ul class="clearfix">
+                <ul>
                     <?php while ($relatedPosts->next()): ?>
                     <li><a href="<?php $relatedPosts->permalink(); ?>"><?php $relatedPosts->title(); ?></a></li>
                     <?php endwhile; ?>

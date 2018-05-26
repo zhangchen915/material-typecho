@@ -9,6 +9,7 @@
 @import '@material/drawer/mdc-drawer.scss';
 @import './comment.scss';
 @import './media.scss';
+
 .body-content {
     width: 100%;
 }
@@ -73,7 +74,8 @@
         text-decoration: none;
     }
     a:hover,
-    & .current {}
+    & .current {
+    }
 }
 
 #toggle {
@@ -124,14 +126,12 @@
     input {
         width: 0;
         outline: none;
-        border: solid;
-        border-color: transparent;
+        border: solid transparent;
         border-width: 0 0 1px 0;
         padding: 10px 30px 10px 10px;
         cursor: pointer;
         color: white;
-        background: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1Ni45NjYgNTYuOTY2IiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTU1LjE0NiA1MS44ODctMTMuNTU4LTE0LjEwMWMzLjQ4Ni00LjE0NCA1LjM5Ni05LjM1OCA1LjM5Ni0xNC43ODYgMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMyAxMC4zMTgtMjMgMjMgMTAuMzE4IDIzIDIzIDIzYzQuNzYxIDAgOS4yOTgtMS40MzYgMTMuMTc3LTQuMTYybDEzLjY2MSAxNC4yMDhjLjU3MS41OTMgMS4zMzkuOTIgMi4xNjIuOTIuNzc5IDAgMS41MTgtLjI5NyAyLjA3OS0uODM3IDEuMTkyLTEuMTQ3IDEuMjMtMy4wNDkuMDgzLTQuMjQyem0tMzEuMTYyLTQ1Ljg4N2M5LjM3NCAwIDE3IDcuNjI2IDE3IDE3cy03LjYyNiAxNy0xNyAxNy0xNy03LjYyNi0xNy0xNyA3LjYyNi0xNyAxNy0xN3oiIGZpbGw9IiNmZmYiLz48L3N2Zz4=) no-repeat;
-        background-position: right;
+        background: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1Ni45NjYgNTYuOTY2IiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDU2Ljk2NiA1Ni45NjYiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTU1LjE0NiA1MS44ODctMTMuNTU4LTE0LjEwMWMzLjQ4Ni00LjE0NCA1LjM5Ni05LjM1OCA1LjM5Ni0xNC43ODYgMC0xMi42ODItMTAuMzE4LTIzLTIzLTIzcy0yMyAxMC4zMTgtMjMgMjMgMTAuMzE4IDIzIDIzIDIzYzQuNzYxIDAgOS4yOTgtMS40MzYgMTMuMTc3LTQuMTYybDEzLjY2MSAxNC4yMDhjLjU3MS41OTMgMS4zMzkuOTIgMi4xNjIuOTIuNzc5IDAgMS41MTgtLjI5NyAyLjA3OS0uODM3IDEuMTkyLTEuMTQ3IDEuMjMtMy4wNDkuMDgzLTQuMjQyem0tMzEuMTYyLTQ1Ljg4N2M5LjM3NCAwIDE3IDcuNjI2IDE3IDE3cy03LjYyNiAxNy0xNyAxNy0xNy03LjYyNi0xNy0xNyA3LjYyNi0xNyAxNy0xN3oiIGZpbGw9IiNmZmYiLz48L3N2Zz4=) no-repeat right;
         background-size: 25px;
         transition: all .5s;
         &:focus {
@@ -201,11 +201,10 @@
     .post-meta {
         text-align: center;
         margin: 0;
-        padding: 0;
+        padding: 0 0 5px 0;
         color: $gray-middle;
         font-size: .875em;
         border-bottom: 1px dashed $gray-light;
-        padding-bottom: 5px;
         li {
             display: inline-block;
             margin: 0 8px 0 0;
@@ -214,15 +213,9 @@
     &:empty {
         height: 300px;
         background-repeat: no-repeat;
-        background-image: linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient( $gray-light 18px, transparent 0), linear-gradient( $gray-light 12px, transparent 0), linear-gradient( $gray-light 12px, transparent 0), linear-gradient( $gray-light 12px, transparent 0);
+        background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient($gray-light 18px, transparent 0), linear-gradient($gray-light 12px, transparent 0), linear-gradient($gray-light 12px, transparent 0), linear-gradient($gray-light 12px, transparent 0);
         background-size: 50px 200px, 200px 20%, 70% 200px, 65% 200px, 60% 200px;
         background-position: 0 0, 40% 25px, 100px 60px, 100px 80px, 100px 100px;
-        animation: shine 1s infinite;
-    }
-    @keyframes shine {
-        to {
-            background-position: 100% 0, 40% 25px, 100px 60px, 100px 80px, 100px 100px;
-        }
     }
 }
 
@@ -238,13 +231,13 @@
             line-height: 32px;
         }
         ul {
+            display: flex;
+            flex-flow: wrap;
             padding-left: 0;
             margin: 0;
             li {
                 width: 50%;
                 list-style: inside disc;
-                float: left;
-                color: $gray-middle;
                 @include line-ellipsis-style();
             }
             a {
@@ -414,7 +407,7 @@
 .post-content hr,
 .comment-content hr {
     margin: 1.5em auto;
-    border: 1px solid #E9E9E9;
+    border: solid #E9E9E9;
     border-width: 1px 0 0 0;
 }
 
