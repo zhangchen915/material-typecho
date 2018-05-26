@@ -7,6 +7,7 @@
 @import '@material/select/mdc-select.scss';
 @import '@material/fab/mdc-fab.scss';
 @import '@material/drawer/mdc-drawer.scss';
+@import '@material/tabs/mdc-tabs.scss';
 @import './comment.scss';
 @import './media.scss';
 
@@ -63,18 +64,12 @@
 }
 
 .nav-menu {
-    display: inline-block;
-    font-size: 0;
-    vertical-align: top;
     a {
-        padding: 0 20px;
+        min-width: 80px;
         font-size: 14px;
         line-height: 56px;
         height: 56px;
         text-decoration: none;
-    }
-    a:hover,
-    & .current {
     }
 }
 

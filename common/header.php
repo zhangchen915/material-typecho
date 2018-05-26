@@ -70,13 +70,14 @@
             <?php if(is_mobile()) : ?><a id="toggle"><span></span></a><?php endif;?>
             <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
 
-             <?php if(!is_mobile()) : ?>
-            <nav class="nav-menu pjax-header">
-                <a<?php if($this->is('index')): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
+            <?php if(!is_mobile()) : ?>
+            <nav class="nav-menu mdc-tab-bar">
+                <a class="mdc-tab <?php if($this->is('index')): ?>mdc-tab--active<?php endif; ?>" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
                 <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                 <?php while($pages->next()): ?>
-                <a<?php if($this->is('page', $pages->slug)): ?> class="current mdc-button mdc-button--unelevated color-filled-button"<?php endif; ?> class="mdc-button mdc-button--unelevated color-filled-button" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
+                <a class="mdc-tab <?php if($this->is('page', $pages->slug)): ?>mdc-tab--active<?php endif; ?>" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
                 <?php endwhile; ?>
+                <span class="mdc-tab-bar__indicator"></span>
             </nav>
             <?php endif;?>
         </div>
