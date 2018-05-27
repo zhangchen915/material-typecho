@@ -51,10 +51,11 @@
     <?php if($this->allow('comment')): ?>
     <h3>
         <span>发表评论</span>
+        <span><a href="<?php $this->options->logoutUrl(); ?>" data-no-instant>登出</a></span>
         <?php $comments->cancelReply('取消回复'); ?>
     </h3>
     
-    <form action="<?php $this->commentUrl() ?>" method="post" class="comment-form<?php $commentClass ?>">
+    <form data-url="<?php $this->commentUrl() ?>" class="comment-form <?php $commentClass ?>">
         <div class="comment-form-main">
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
                 <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required><?php $this->remember('text',false); ?></textarea>
@@ -88,12 +89,8 @@
                 </div>
             </div>
          
-            <?php $security = $this->widget('Widget_Security'); ?>
-            <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
+
         </div>
-        <!-- <div class="comment-form-extra">
-            <span class="response"><?php if($this->user->hasLogin()): ?> You are <a href="<?php $this->options->profileUrl(); ?>" data-no-instant><?php $this->user->screenName(); ?></a> here, do you want to <a href="<?php $this->options->logoutUrl(); ?>" data-no-instant>logout</a> ?<?php endif; ?></span>
-        </div> -->
     </form>
 
     <?php else : ?>

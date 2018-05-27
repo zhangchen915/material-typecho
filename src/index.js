@@ -10,6 +10,7 @@ import {MDCTextField} from '@material/textfield';
 import {MDCTabBar} from '@material/tabs';
 
 import './scrollTop';
+import './comment'
 import './index.scss';
 import 'prismjs/themes/prism.css';
 
