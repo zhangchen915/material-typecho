@@ -12,6 +12,13 @@
 </footer>
 </div>
 
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__text"></div>
+  <div class="mdc-snackbar__action-wrapper">
+    <button type="button" class="mdc-snackbar__action-button"></button>
+  </div>
+</div>
+
 <script src="<?php $this->options->themeUrl('dist/index.js'); ?>"></script>
 </body>
 </html>

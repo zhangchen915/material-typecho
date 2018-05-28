@@ -82,14 +82,12 @@
                         <div class="mdc-line-ripple"></div>
                     </div>
 
-                    <button name="submit" type="submit" class="mdc-button mdc-button--outlined 
-                                                               mdc-ripple-upgraded mdc-layout-grid__cell--span-2
-                                                               mdc-layout-grid__cell--span-12-phone
-                                                               mdc-layout-grid__cell--align-middle">提交</button> 
+                    <button id="comment-submit" type="submit" class="mdc-button mdc-button--outlined
+                                                                     mdc-ripple-upgraded mdc-layout-grid__cell--span-2
+                                                                     mdc-layout-grid__cell--span-12-phone
+                                                                     mdc-layout-grid__cell--align-middle">提交</button>
                 </div>
             </div>
-         
-
         </div>
     </form>
 
