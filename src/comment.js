@@ -5,7 +5,7 @@ const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
 
 function postBody() {
     let commentParams = [];
-    comment.querySelectorAll('textarea,input,button').forEach(e => {
+    comment.querySelectorAll('textarea,input').forEach(e => {
         commentParams.push(encodeURIComponent(e.name) + '=' + encodeURIComponent(e.value));
 
     });
@@ -22,7 +22,7 @@ function postComment() {
         },
         credentials: 'same-origin'
     }).then(res => {
-        snackbar.show({message: "评论成功，审核通过后显示。"})
+        snackbar.show({message: "评论成功，审核通过后显示"})
     }).catch(error => {
         snackbar.show({message: "评论失败！"});
     });

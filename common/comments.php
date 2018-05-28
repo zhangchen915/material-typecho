@@ -38,7 +38,7 @@
     </article>
 
     <?php if ($comments->children) { ?>
-        <div class="children">
+        <div class="comment-child">
             <?php $comments->threadedComments($options); ?>
         </div>
     <?php } ?>
@@ -100,9 +100,8 @@
     <?php $comments->listComments(); ?>
 
     <div class="lists-navigator">
-        <?php $comments->pageNav('←','→','2','...'); ?>
+        <?php $comments->pageNav('←','→','3','...'); ?>
     </div>
-
     <?php endif; ?>
 </div>
 
