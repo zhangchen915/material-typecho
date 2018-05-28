@@ -28,8 +28,23 @@ function postComment() {
     });
 }
 
+function getCookie(name) {
+    const arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    if (arr != null) return decodeURI(arr[2]);
+    return null;
+}
+
+function autoFill(prefix) {
+    const inputName = ['author', 'url', 'mail'];
+    inputName.forEach(e => {
+        document.getElementById(e).value = getCookie(`${prefix}__typecho_remember_${e}`);
+        console.log(getCookie(`${prefix}__typecho_remember_${e}`))
+    });
+}
+
 if (comment) {
     const submit = comment.querySelector('#comment-submit');
+    if (comment.dataset.login) autoFill(comment.dataset.urlPrefix);
     submit.addEventListener('click', e => {
         e.preventDefault();
         postComment();

@@ -23,7 +23,7 @@
     }
 ?>
 
-<li id="li-<?php $comments->theId(); ?>" class="comment even thread-even depth-<?php echo $depth ?> <?php $comments->alt(' comment-odd', 'comment-even');?>">
+<li id="li-<?php $comments->theId(); ?>" class="comment depth-<?php echo $depth ?>">
     <article id="<?php $comments->theId(); ?>" class="comment-body">
         <div class="comment-avatar" style="background-image: url('<?php echo $avatar ?>')"></div>
 
@@ -51,11 +51,14 @@
     <?php if($this->allow('comment')): ?>
     <h3>
         <span>发表评论</span>
-        <span><a href="<?php $this->options->logoutUrl(); ?>" data-no-instant>登出</a></span>
+        <span><a href="<?php $this->options->logoutUrl(); ?>">登出</a></span>
         <?php $comments->cancelReply('取消回复'); ?>
     </h3>
     
-    <form data-url="<?php $this->commentUrl() ?>" class="comment-form <?php $commentClass ?>">
+    <form data-url="<?php $this->commentUrl() ?>"
+          data-login="<?php echo $this->user->hasLogin() ?>"
+          data-urlPrefix="<?php echo md5($this->request->getUrlPrefix()); ?>"
+          class="comment-form <?php $commentClass ?>">
         <div class="comment-form-main">
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
                 <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required><?php $this->remember('text',false); ?></textarea>
@@ -104,22 +107,3 @@
     </div>
     <?php endif; ?>
 </div>
-
-<?php if(!$this->user->hasLogin()){ ?>
-<script type="text/javascript">
-    function getCookie(name) {
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg))
-            return unescape(decodeURI(arr[2]));
-        else
-            return null;
-    }
-
-    function adduser() {
-        document.getElementById('author').value = getCookie('<?php echo md5($this->request->getUrlPrefix()); ?>__typecho_remember_author');
-        document.getElementById('mail').value = getCookie('<?php echo md5($this->request->getUrlPrefix()); ?>__typecho_remember_mail');
-        document.getElementById('url').value = getCookie('<?php echo md5($this->request->getUrlPrefix()); ?>__typecho_remember_url');
-    }
-    adduser();
-</script>
-<?php } ?>
