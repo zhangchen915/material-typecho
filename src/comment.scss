@@ -22,6 +22,9 @@
     li {
         list-style: none;
     }
+    .comment-child{
+        padding-left: 50px;
+    }
 }
 
 .comment-body {
@@ -65,9 +68,6 @@
                 color: var(--mdc-theme-primary);
             }
         }
-    }
-    .comment-child{
-        padding-left: 50px;
     }
     &:hover .comment-actions {
         visibility: visible;
