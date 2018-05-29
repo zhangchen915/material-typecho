@@ -466,4 +466,23 @@
     a {
         color: white;
     }
+    .icons {
+        margin: 0 auto;
+        a {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: no-repeat center;
+            background-size: cover;
+        }
+        #github {
+            background-image: url("./icon/github.svg");
+        }
+        #weibo {
+            background-image: url("./icon/weibo.svg");
+        }
+        #twitter {
+            background-image: url("./icon/twitter.svg");
+        }
+    }
 }

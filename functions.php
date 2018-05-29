@@ -29,6 +29,9 @@ function themeConfig($form) {
     array('ShowSearch', 'ShowCategory', 'ShowRecentPosts', 'ShowTags'), _t('侧边栏显示'));
     $form->addInput($sidebarBlock->multiMode());
 
+    $icons =  new Typecho_Widget_Helper_Form_Element_Textarea('icons', NULL, 'github https://github.com/zhangchen915', _t('icon'), _t('名称+空格+URL'));
+    $form->addInput($icons);
+
     $links =  new Typecho_Widget_Helper_Form_Element_Textarea('links', NULL, '海屿 zhangchen915.com', _t('友链'), _t('名称+空格+域名'));
     $form->addInput($links);
 }
