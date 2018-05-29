@@ -58,7 +58,6 @@
             height: 56px;
             line-height: 56px;
             margin-right: 25px;
-            text-decoration: none;
             user-select: none;
         }
     }
@@ -70,7 +69,6 @@
         font-size: 14px;
         line-height: 56px;
         height: 56px;
-        text-decoration: none;
     }
 }
 
@@ -147,7 +145,6 @@
     a {
         color: #A94442;
         font-weight: bold;
-        text-decoration: underline;
     }
 }
 
@@ -170,23 +167,20 @@
     }
     .post-title a {
         position: relative;
-    }
-    .post-title a:after {
-        content: "";
-        position: absolute;
-        border-bottom: 2px solid var(--mdc-theme-primary);
-        bottom: -3px;
-        left: 100%;
-        width: 0;
-        transition: width 350ms, left 350ms;
-    }
-    .post-title a:hover {
-        text-decoration: none;
-    }
-    .post-title a:hover:after {
-        left: 0;
-        width: 100%;
-        transition: width 350ms;
+        &:after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid var(--mdc-theme-primary);
+            bottom: -3px;
+            left: 100%;
+            width: 0;
+            transition: width 350ms, left 350ms;
+            &:after {
+                left: 0;
+                width: 100%;
+                transition: width 350ms;
+            }
+        }
     }
     h1.post-title {
         font-size: 1.5em;
@@ -295,7 +289,6 @@
             -webkit-transition: all 0.2s linear;
             transition: all 0.2s linear;
             &:hover {
-                text-decoration: none;
                 background-color: var(--mdc-theme-primary);
                 color: white;
             }
@@ -340,9 +333,6 @@
             width: 100%;
             line-height: 40px;
             @include line-ellipsis-style();
-            &:hover {
-                text-decoration: none;
-            }
         }
     }
     .mdc-select {
@@ -367,7 +357,6 @@
                 &:hover {
                     color: white;
                     background: var(--mdc-theme-primary);
-                    text-decoration: none;
                     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.1)
                 }
             }
@@ -476,8 +465,5 @@
     font-size: 0.875em;
     a {
         color: white;
-        &:hover {
-            text-decoration: underline;
-        }
     }
 }
