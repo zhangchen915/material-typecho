@@ -11,7 +11,6 @@
 @import '@material/snackbar/mdc-snackbar.scss';
 @import './comment.scss';
 @import './media.scss';
-
 .body-content {
     width: 100%;
 }
@@ -399,30 +398,22 @@
 .creative-commons {
     width: 120px;
     height: 42px;
-    &.CC-BY {
-        background-image: url('./licensed/CC-BY.svg')
-    }
-    &.CC-BY-SA {
-        background-image: url('./licensed/CC-BY-SA.svg')
-    }
-    &.CC-BY-NC {
-        background-image: url('./licensed/CC-BY-NC.svg')
-    }
-    &.CC-BY-ND {
-        background-image: url('./licensed/CC-BY-ND.svg')
-    }
-    &.CC-BY-NC-ND {
-        background-image: url('./licensed/CC-BY-NC-ND.svg')
-    }
-    &.CC-BY-NC-SA {
-        background-image: url('./licensed/CC-BY-NC-SA.svg')
+    @each $name in CC-BY,
+    CC-BY-SA,
+    CC-BY-NC,
+    CC-BY-ND,
+    CC-BY-NC-ND,
+    CC-BY-NC-SA {
+        &.#{$name} {
+            background-image: url('./licensed/#{$name}.svg');
+        }
     }
 }
 
 #goTop {
     position: fixed;
     right: 50px;
-    bottom: 80px;
+    bottom: 8em;
     background-color: $gray-light;
     transition: bottom ease-in-out .5s;
     &:hover {
@@ -456,7 +447,7 @@
 
 #footer {
     position: relative;
-    padding: 2em 0;
+    padding: 1em 0 2em;
     line-height: 1.5;
     text-align: center;
     color: $gray-middle;
@@ -475,14 +466,12 @@
             background: no-repeat center;
             background-size: cover;
         }
-        #github {
-            background-image: url("./icon/github.svg");
-        }
-        #weibo {
-            background-image: url("./icon/weibo.svg");
-        }
-        #twitter {
-            background-image: url("./icon/twitter.svg");
+        @each $name in github,
+        weibo,
+        twitter {
+            ##{$name} {
+                background-image: url('./icon/#{$name}.svg');
+            }
         }
     }
 }
