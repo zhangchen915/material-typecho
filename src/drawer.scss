@@ -1,0 +1,42 @@
+@import '@material/drawer/mdc-drawer.scss';
+#toggle {
+    width: 25px;
+    float: left;
+    margin-top: 26px;
+    margin-right: 5px;
+    span {
+        position: relative;
+        display: block;
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -9px;
+        }
+        &:after {
+            top: 9px;
+        }
+    }
+    span,
+    span:after,
+    span:before {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+    &.on {
+        span {
+            background-color: transparent;
+            &:before {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            &:after {
+                transform: rotate(-45deg) translate(7px, -8px);
+            }
+        }
+    }
+}

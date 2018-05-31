@@ -6,7 +6,6 @@
 @import '@material/textfield/mdc-text-field.scss';
 @import '@material/select/mdc-select.scss';
 @import '@material/fab/mdc-fab.scss';
-@import '@material/drawer/mdc-drawer.scss';
 @import '@material/tabs/mdc-tabs.scss';
 @import '@material/snackbar/mdc-snackbar.scss';
 @import './comment.scss';
@@ -71,48 +70,6 @@
     }
 }
 
-#toggle {
-    width: 25px;
-    float: left;
-    margin-top: 26px;
-    margin-right: 5px;
-    span {
-        position: relative;
-        display: block;
-        &:after,
-        &:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: -9px;
-        }
-        &:after {
-            top: 9px;
-        }
-    }
-    span,
-    span:after,
-    span:before {
-        width: 100%;
-        height: 3px;
-        background-color: white;
-        transition: all 0.3s;
-        backface-visibility: hidden;
-        border-radius: 2px;
-    }
-    &.on {
-        span {
-            background-color: transparent;
-            &:before {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            &:after {
-                transform: rotate(-45deg) translate(7px, -8px);
-            }
-        }
-    }
-}
-
 #search {
     position: relative;
     margin-top: 12px;
@@ -164,23 +121,6 @@
         margin: .2em 0 0.5em;
         font-size: 1.4em;
     }
-    .post-title a {
-        position: relative;
-        &:after {
-            content: "";
-            position: absolute;
-            border-bottom: 2px solid var(--mdc-theme-primary);
-            bottom: -3px;
-            left: 100%;
-            width: 0;
-            transition: width 350ms, left 350ms;
-            &:after {
-                left: 0;
-                width: 100%;
-                transition: width 350ms;
-            }
-        }
-    }
     h1.post-title {
         font-size: 1.5em;
     }
@@ -231,9 +171,9 @@
             }
             a {
                 color: $gray-deep;
-            }
-            a:hover {
-                color: var(--mdc-theme-primary);
+                &:hover {
+                    color: var(--mdc-theme-primary);
+                }
             }
         }
     }
@@ -285,22 +225,13 @@
             line-height: 28px;
             background-color: $gray-light;
             border-radius: 2px;
-            -webkit-transition: all 0.2s linear;
             transition: all 0.2s linear;
-            &:hover {
-                background-color: var(--mdc-theme-primary);
-                color: white;
-            }
         }
-    }
-    li.prev,
-    li.next,
-    li.current {
-        border-radius: 2px;
-    }
-    li.current a {
-        background-color: var(--mdc-theme-primary);
-        color: white;
+        &.current a,
+        a:hover {
+            background-color: var(--mdc-theme-primary);
+            color: white;
+        }
     }
 }
 
