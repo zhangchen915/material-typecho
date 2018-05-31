@@ -25,7 +25,7 @@ const pjax = new Pjax({
     elements: "a",
     selectors: ['.pjax-content'],
     switches: {
-        ".pjax-content": (oldEl, newEl) => {
+        ".pjax-content": function (oldEl, newEl) {
             scrollTo(0, 0);
             oldEl.innerHTML = '<article class="post"></article>';
             this.onSwitch();
