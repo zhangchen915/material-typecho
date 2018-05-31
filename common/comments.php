@@ -51,7 +51,7 @@
     <?php if($this->allow('comment')): ?>
     <h3>
         <span>发表评论</span>
-        <span><a href="<?php $this->options->logoutUrl(); ?>">登出</a></span>
+        <?php if($this->user->hasLogin()): ?><span><a href="<?php $this->options->logoutUrl(); ?>">登出</a></span><?php endif; ?>
         <?php $comments->cancelReply('取消回复'); ?>
     </h3>
     
