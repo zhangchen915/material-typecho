@@ -13,7 +13,16 @@ function themeConfig($form) {
     $color =  new Typecho_Widget_Helper_Form_Element_Text('color', NULL, '#429E46', _t('主题颜色'), _t(''));
     $form->addInput($color);
 
-    $CC = new Typecho_Widget_Helper_Form_Element_Radio('CC',
+    $thumbnail = new Typecho_Widget_Helper_Form_Element_Select('thumbnail', array(
+        'open' => '显示缩略图，无图不显示',
+        'close' => '不显示缩略图'),
+        // 'random'=>'显示缩略图，无图文章随机显示',
+        // 'default' => '显示缩略图，无图文章显示固定的缩略图',      
+        // 'all-random' => '全部显示随机缩略图',
+        'open', _t('缩略图设置'));
+    $form->addInput($thumbnail->multiMode());
+
+    $CC = new Typecho_Widget_Helper_Form_Element_Select('CC',
     array(
     'CC-BY' => _t('署名'),
     'CC-BY-SA' => _t('署名--禁止演绎'),
@@ -97,4 +106,13 @@ function get_post_view($archive){
 		}
 	}
 	echo $row['views'];
+}
+
+function get_thumbnail($obj) {
+    preg_match_all( "/<[img|IMG].*?src=[\'|\"](.*?)[\'|\"].*?[\/]?>/", $obj->content, $matches);
+    $thumbnail = false;
+    if(isset($matches[1][0])){
+        $thumbnail = $matches[1][0];
+    }
+    return $thumbnail;
 }
