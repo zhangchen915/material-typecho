@@ -1,5 +1,15 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php $this->need('common/header.php'); ?>
+<?php
+/**
+ * Typecho Material 风格主题。
+ * 
+ * @package Material-typecho 
+ * @author zhangchen915
+ * @version 1.0
+ * @link https://zhangchen915.com
+ */
+
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+$this->need('common/header.php'); ?>
 
 <main class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9 pjax-content">
 	<?php while($this->next()): ?>
