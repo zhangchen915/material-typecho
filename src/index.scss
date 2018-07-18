@@ -139,6 +139,13 @@
             margin: 0 8px 0 0;
         }
     }
+    .entry-summary {
+        color: $gray-deep;
+        .thumbnail {
+            background-size: cover;
+            margin: 14px 0
+        }
+    }
     &:empty {
         height: 300px;
         background-repeat: no-repeat;

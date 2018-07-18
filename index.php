@@ -20,9 +20,14 @@ $this->need('common/header.php'); ?>
 				<li>时间：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y-m-d'); ?></time></li>
 				<li>分类：<?php $this->category(','); ?></li>
 			</ul>
-            <div class="post-content" itemprop="articleBody">
-                <?php $this->content('阅读全文&raquo;'); ?>
-            </div>
+			<a href="<?php $this->permalink() ?>" class="entry-summary mdc-layout-grid__inner">
+				<?php if($this->options->thumbnailConfig == 'open' && get_thumbnail($this)): ?>
+				<div class="thumbnail mdc-layout-grid__cell--span-4" style="background-image: url('<?php echo get_thumbnail($this) ?>')"></div>
+				<p class="mdc-layout-grid__cell--span-8"><?php $this->excerpt(250, '...'); ?></p>
+				<?php else : ?>
+				<p class="mdc-layout-grid__cell--span-12"><?php $this->excerpt(250, '...'); ?></p>
+				<?php endif; ?>
+			</a>
         </article>
 	<?php endwhile; ?>
 
