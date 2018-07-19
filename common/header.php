@@ -84,7 +84,7 @@
 
         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowSearch', $this->options->sidebarBlock)): ?>
         <div class="header-right">
-            <form id="search" method="post" action="./" role="search">
+            <form id="search" action="./" role="search">
                 <input type="text" name="s" class="text" autocomplete="off" />
             </form>
         </div>

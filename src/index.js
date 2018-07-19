@@ -14,7 +14,7 @@ import './comment'
 import './index.scss';
 import 'prismjs/themes/prism.css';
 
-const postContent=document.querySelector('.post-content');
+const postContent = document.querySelector('.post-content');
 const zoom = new Zooming({
     customSize: '125%',
     bgColor: 'rgba(26,26,26,.65)',
@@ -61,6 +61,12 @@ window.onload = () => {
         document.querySelector('select').onchange = e => {
             if (e.target.value) pjax.loadUrl(e.target.value);
         }
+
+        document.querySelector('#search').addEventListener('submit', e => {
+            e.preventDefault();
+            const value = e.target[0].value;
+            if (value) pjax.loadUrl(`//${window.location.host}/index.php/search/${value}`);
+        })
     }
 
     document.addEventListener('pjax:success', () => {
@@ -69,7 +75,7 @@ window.onload = () => {
     });
 };
 
-if(postContent){
+if (postContent) {
     postContent.addEventListener('copy', e => {
         let author = document.querySelector('.logo a').textContent;
         const selection = window.getSelection();
