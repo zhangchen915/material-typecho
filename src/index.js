@@ -69,9 +69,9 @@ window.onload = () => {
         })
     }
 
-    document.addEventListener('pjax:success', () => {
-        highlightAll();
+    document.addEventListener('pjax:complete', () => {
         init();
+        highlightAll();
     });
 };
 
