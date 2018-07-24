@@ -2,6 +2,15 @@
 /**
  * Typecho Material 风格主题。
  * 
+ * - pjax
+ * - custome theam color
+ * - image zooming
+ * - code hightlight
+ * - Google analyze
+ * - CC listens
+ * 
+ * Issue https://github.com/zhangchen915/material-typecho/issues
+ * 
  * @package Material-typecho 
  * @author zhangchen915
  * @version 1.0
@@ -21,7 +30,7 @@ $this->need('common/header.php'); ?>
 				<li>分类：<?php $this->category(','); ?></li>
 			</ul>
 			<a href="<?php $this->permalink() ?>" class="entry-summary mdc-layout-grid__inner">
-				<?php if($this->options->thumbnailConfig == 'open' && get_thumbnail($this)): ?>
+				<?php if($this->options->thumbnail == 'open' && get_thumbnail($this)): ?>
 				<div class="thumbnail mdc-layout-grid__cell--span-4" style="background-image: url('<?php echo get_thumbnail($this) ?>')"></div>
 				<p class="mdc-layout-grid__cell--span-8"><?php $this->excerpt(250, '...'); ?></p>
 				<?php else : ?>

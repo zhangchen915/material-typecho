@@ -14,7 +14,7 @@ function themeConfig($form) {
     $form->addInput($color);
 
     $thumbnail = new Typecho_Widget_Helper_Form_Element_Select('thumbnail', array(
-        'open' => '显示缩略图，无图不显示',
+        'open' => '显示缩略图',
         'close' => '不显示缩略图'),
         // 'random'=>'显示缩略图，无图文章随机显示',
         // 'default' => '显示缩略图，无图文章显示固定的缩略图',      
