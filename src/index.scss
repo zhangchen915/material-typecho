@@ -142,8 +142,10 @@
     .entry-summary {
         color: $gray-deep;
         .thumbnail {
-            background-size: cover;
-            margin: 14px 0
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 14px 0;
         }
     }
     &:empty {
