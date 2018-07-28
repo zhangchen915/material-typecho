@@ -1,5 +1,10 @@
 #!/bin/sh
-name=release;
-rm -r ./$name/ 
-mkdir $name
-cp -a dist screenshot.* *.php common ./$name
+name="./release";
+
+if [[ ! -d "$name" ]]; then
+	mkdir $name
+else
+	rm -r $name
+fi
+
+cp -a dist screenshot.* *.php common $name

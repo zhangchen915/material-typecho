@@ -19,4 +19,4 @@ rewrite form 字节猫 and welcome PR.
 ### build
 `npm i`
 
-run `sh ./build.sh` then upload `release`.
+run `npm run build` then upload `release`.
