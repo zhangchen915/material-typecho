@@ -148,13 +148,6 @@
             margin: 14px 0;
         }
     }
-    &:empty {
-        height: 300px;
-        background-repeat: no-repeat;
-        background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient($gray-light 18px, transparent 0), linear-gradient($gray-light 12px, transparent 0), linear-gradient($gray-light 12px, transparent 0), linear-gradient($gray-light 12px, transparent 0);
-        background-size: 50px 200px, 200px 20%, 75% 200px, 70% 200px, 65% 200px;
-        background-position: 0 0, 50% 25px, 3.5em 60px, 3.5em 80px, 3.5em 100px;
-    }
 }
 
 .post-footer {

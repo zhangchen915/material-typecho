@@ -10,12 +10,12 @@
   "license": "GPL",
   "dependencies": {
     "material-components-web": "^0.35.2",
-    "pjax": "^0.2.6",
+    "pjax-api": "^3.23.0",
     "prismjs": "^1.14.0",
     "zooming": "^2.0.0"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "parcel-bundler": "^1.9.7"
   }
 }

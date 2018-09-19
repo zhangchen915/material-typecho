@@ -4,7 +4,7 @@ import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-java'
 import Zooming from 'zooming'
-import Pjax from 'Pjax'
+import {Pjax} from 'pjax-api'
 import {MDCRipple} from '@material/ripple/index'
 import {MDCTextField} from '@material/textfield';
 import {MDCTabBar} from '@material/tabs';
@@ -22,16 +22,8 @@ const zoom = new Zooming({
 });
 
 const pjax = new Pjax({
-    elements: "a",
-    selectors: ['.pjax-content'],
-    switches: {
-        ".pjax-content": function (oldEl, newEl) {
-            scrollTo(0, 0);
-            oldEl.innerHTML = '<article class="post"></article>';
-            this.onSwitch();
-            oldEl.outerHTML = newEl.outerHTML;
-        }
-    }
+    areas: ['.pjax-content'],
+    link: 'a'
 });
 
 function init() {
@@ -59,17 +51,17 @@ window.onload = () => {
         new MDCTabBar(document.querySelector('.nav-menu'));
 
         document.querySelector('select').onchange = e => {
-            if (e.target.value) pjax.loadUrl(e.target.value);
-        }
+            if (e.target.value) pjax.assign(e.target.value);
+        };
 
         document.querySelector('#search').addEventListener('submit', e => {
             e.preventDefault();
             const value = e.target[0].value;
-            if (value) pjax.loadUrl(`//${window.location.host}/index.php/search/${value}`);
+            if (value) pjax.assign(`//${window.location.host}/index.php/search/${value}`);
         })
     }
 
-    document.addEventListener('pjax:success', () => {
+    window.addEventListener('pjax:load', () => {
         init();
         highlightAll();
     });
