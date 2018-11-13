@@ -15,6 +15,9 @@ import './index.scss';
 import 'prismjs/themes/prism.css';
 
 const postContent = document.querySelector('.post-content');
+const select = document.querySelector('select');
+const search = document.querySelector('#search');
+
 const zoom = new Zooming({
     customSize: '125%',
     bgColor: 'rgba(26,26,26,.65)',
@@ -50,11 +53,20 @@ window.onload = () => {
 
         new MDCTabBar(document.querySelector('.nav-menu'));
 
-        document.querySelector('select').onchange = e => {
+        if(select) select.onchange = e => {
             if (e.target.value) pjax.assign(e.target.value);
         };
 
-        document.querySelector('#search').addEventListener('submit', e => {
+        document.querySelector('.search-button').addEventListener('click', e=> {
+            if(document.querySelector('#search input').value){
+                search.dispatchEvent(new Event('submit'));
+                document.querySelector('#search input').value = '';
+            }else{
+                document.querySelector('#search input').focus();
+            }
+        });
+
+        search.addEventListener('submit', e => {
             e.preventDefault();
             const value = e.target[0].value;
             if (value) pjax.assign(`//${window.location.host}/index.php/search/${value}`);

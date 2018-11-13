@@ -86,6 +86,7 @@
         <div class="header-right">
             <form id="search" action="./" role="search">
                 <input type="text" name="s" class="text" autocomplete="off" />
+                <div class="search-button"></div>
             </form>
         </div>
         <?php endif; ?>
