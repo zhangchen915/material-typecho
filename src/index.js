@@ -7,7 +7,7 @@ import Zooming from 'zooming'
 import {Pjax} from 'pjax-api'
 import {MDCRipple} from '@material/ripple/index'
 import {MDCTextField} from '@material/textfield';
-import {MDCTabBar} from '@material/tabs';
+import {MDCTabBar} from '@material/tab-bar';
 
 import './scrollTop';
 import './comment'
@@ -15,7 +15,6 @@ import './index.scss';
 import 'prismjs/themes/prism.css';
 
 const postContent = document.querySelector('.post-content');
-const select = document.querySelector('select');
 const search = document.querySelector('#search');
 
 const zoom = new Zooming({
@@ -53,7 +52,7 @@ window.onload = () => {
 
         new MDCTabBar(document.querySelector('.nav-menu'));
 
-        if(select) select.onchange = e => {
+        if (document.querySelector('#search')) document.querySelector('#search').onchange = e => {
             if (e.target.value) pjax.assign(e.target.value);
         };
 
