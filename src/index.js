@@ -50,7 +50,7 @@ window.onload = () => {
             background.render();
         });
 
-        new MDCTabBar(document.querySelector('.nav-menu'));
+        new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 
         if (document.querySelector('#search')) document.querySelector('#search').onchange = e => {
             if (e.target.value) pjax.assign(e.target.value);
