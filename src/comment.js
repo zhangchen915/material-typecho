@@ -21,9 +21,9 @@ function postComment() {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         credentials: 'same-origin'
-    }).then(res => {
+    }).then(() => {
         snackbar.show({message: "评论成功，审核通过后显示"})
-    }).catch(error => {
+    }).catch(() => {
         snackbar.show({message: "评论失败！"});
     });
 }
