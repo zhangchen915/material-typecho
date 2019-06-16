@@ -9,10 +9,11 @@
   "author": "zhangchen915",
   "license": "GPL",
   "dependencies": {
-    "material-components-web": "^0.35.2",
-    "pjax-api": "^3.23.0",
-    "prismjs": "^1.14.0",
-    "zooming": "^2.0.0"
+    "@material/tabs": "^2.3.0",
+    "material-components-web": "^2.3.1",
+    "pjax-api": "^3.29.6",
+    "prismjs": "^1.16.0",
+    "zooming": "^2.1.1"
   },
   "devDependencies": {
     "node-sass": "^4.9.3",
