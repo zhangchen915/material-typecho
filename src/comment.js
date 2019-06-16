@@ -1,4 +1,4 @@
-import {MDCSnackbar} from '@material/snackbar';
+import { MDCSnackbar } from '@material/snackbar';
 
 const comment = document.querySelector('.comment-form');
 const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
@@ -22,10 +22,10 @@ function postComment() {
         },
         credentials: 'same-origin'
     }).then(() => {
-        snackbar.show({message: "评论成功，审核通过后显示"})
+        snackbar.labelText = "评论成功，审核通过后显示"
     }).catch(() => {
-        snackbar.show({message: "评论失败！"});
-    });
+        snackbar.labelText = "评论失败！"
+    }).finally(() => snackbar.open());
 }
 
 function getCookie(name) {
