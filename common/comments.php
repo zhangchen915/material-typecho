@@ -62,27 +62,47 @@
         <div class="comment-form-main">
             <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth">
                 <textarea id="textarea" name="text" class="mdc-text-field__input" rows="8" cols="40" required><?php $this->remember('text',false); ?></textarea>
-                <label for="textarea" class="mdc-floating-label">输入评论</label>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                    <label for="textarea" class="mdc-floating-label">输入评论</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
             </div>
-                        
             <div class="comment-form-fields">
                 <div class="mdc-layout-grid__inner">
-                    <div class="mdc-text-field mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-12-phone">
+                    <div class="mdc-text-field mdc-text-field--outlined mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-12-phone">
                         <input type="text" id="author" class="mdc-text-field__input" name="author" maxlength="12" required>
-                        <label class="mdc-floating-label" for="author">昵称</label>
-                        <div class="mdc-line-ripple"></div>
+                        <div class="mdc-notched-outline">
+                            <div class="mdc-notched-outline__leading"></div>
+                            <div class="mdc-notched-outline__notch">
+                            <label class="mdc-floating-label">昵称</label>
+                            </div>
+                            <div class="mdc-notched-outline__trailing"></div>
+                        </div>
                     </div>
 
-                    <div class="mdc-text-field mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-12-phone">
+                    <div class="mdc-text-field mdc-text-field--outlined mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-12-phone">
                         <input type="email" name="mail" id="mail" class="mdc-text-field__input" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?>>
-                        <label class="mdc-floating-label" for="mail">邮箱</label>
-                        <div class="mdc-line-ripple"></div>
+                        <div class="mdc-notched-outline">
+                            <div class="mdc-notched-outline__leading"></div>
+                            <div class="mdc-notched-outline__notch">
+                            <label class="mdc-floating-label">邮箱</label>
+                            </div>
+                            <div class="mdc-notched-outline__trailing"></div>
+                        </div>
                     </div>
 
-                    <div class="mdc-text-field mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-12-phone">
+                    <div class="mdc-text-field mdc-text-field--outlined mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-12-phone">
                         <input type="url" name="url" id="url" class="mdc-text-field__input" <?php if ($this->options->commentsRequireURL): ?>required<?php endif; ?>>
-                        <label class="mdc-floating-label" for="url">网站</label>
-                        <div class="mdc-line-ripple"></div>
+                        <div class="mdc-notched-outline">
+                            <div class="mdc-notched-outline__leading"></div>
+                            <div class="mdc-notched-outline__notch">
+                            <label class="mdc-floating-label">网站</label>
+                            </div>
+                            <div class="mdc-notched-outline__trailing"></div>
+                        </div>
                     </div>
 
                     <button id="comment-submit" type="submit" class="mdc-button mdc-button--outlined
