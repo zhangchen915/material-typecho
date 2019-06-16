@@ -21,7 +21,7 @@ function scrollTop(duration = 30) {
         if (stepCount < duration) {
             requestAnimationFrame(step);
             stepCount++;
-            scrollTo(0, initialPosition * (1 - 0.25 * Math.pow((1 - Math.cos(stepPI * stepCount)), 2)));
+            window.scrollTo(0, initialPosition * (1 - 0.25 * Math.pow((1 - Math.cos(stepPI * stepCount)), 2)));
         }
     }
 }

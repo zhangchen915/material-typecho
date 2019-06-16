@@ -71,14 +71,21 @@
             <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
 
             <?php if(!is_mobile()) : ?>
-            <nav class="nav-menu mdc-tab-bar">
-                <a class="mdc-tab <?php if($this->is('index')): ?>mdc-tab--active<?php endif; ?>" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
+            <div class="mdc-tab-bar">
                 <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                 <?php while($pages->next()): ?>
-                <a class="mdc-tab <?php if($this->is('page', $pages->slug)): ?>mdc-tab--active<?php endif; ?>" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
+                <button class="mdc-tab <?php if($this->is('page', $pages->slug)): ?>mdc-tab--active<?php endif; ?>" tabindex="0"
+                    onclick="location.href='<?php $pages->permalink(); ?>'">
+                    <span class="mdc-tab__content">
+                        <span class="mdc-tab__text-label"><?php $pages->title(); ?></span>
+                    </span>
+                    <span class="mdc-tab-indicator <?php if($this->is('page', $pages->slug)): ?>mdc-tab-indicator--active<?php endif; ?>">
+                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                    </span>
+                    <span class="mdc-tab__ripple"></span>
+                </button>
                 <?php endwhile; ?>
-                <span class="mdc-tab-bar__indicator"></span>
-            </nav>
+            </div>
             <?php endif;?>
         </div>
 

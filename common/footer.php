@@ -23,9 +23,11 @@
 </div>
 
 <div class="mdc-snackbar">
-  <div class="mdc-snackbar__text"></div>
-  <div class="mdc-snackbar__action-wrapper">
-    <button type="button" class="mdc-snackbar__action-button"></button>
+  <div class="mdc-snackbar__surface">
+    <div class="mdc-snackbar__label"></div>
+    <div class="mdc-snackbar__actions">
+      <button type="button" class="mdc-button mdc-snackbar__action"></button>
+    </div>
   </div>
 </div>
 
