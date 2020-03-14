@@ -1,13 +1,13 @@
-import {highlightAll} from 'prismjs'
+import { highlightAll } from 'prismjs'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-java'
 import Zooming from 'zooming'
-import {Pjax} from 'pjax-api'
-import {MDCRipple} from '@material/ripple/index'
-import {MDCTextField} from '@material/textfield';
-import {MDCTabBar} from '@material/tab-bar';
+import { Pjax } from 'pjax-api'
+import { MDCRipple } from '@material/ripple/index'
+import { MDCTextField } from '@material/textfield';
+import { MDCTabBar } from '@material/tab-bar';
 
 import './scrollTop';
 import './comment'
@@ -40,13 +40,21 @@ function init() {
     zoom.listen('.post-content img');
 }
 
+function katexRender() {
+    const postContent = document.querySelector('.post-content')
+    if (renderMathInElement && postContent) renderMathInElement(document.querySelector('.post-content'), {
+        delimiters: [{left: "$", right: "$", display: true}]
+    });
+}
+
 window.onload = () => {
     init();
+    katexRender();
     if (navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
-        import ('./drawer').then();
+        import('./drawer').then();
     } else {
-        import ('./compatible').then();
-        import ('./background').then(background => {
+        import('./compatible').then();
+        import('./background').then(background => {
             background.render();
         });
 
@@ -56,11 +64,11 @@ window.onload = () => {
             if (e.target.value) pjax.assign(e.target.value);
         };
 
-        document.querySelector('.search-button').addEventListener('click', e=> {
-            if(document.querySelector('#search input').value){
+        document.querySelector('.search-button').addEventListener('click', e => {
+            if (document.querySelector('#search input').value) {
                 search.dispatchEvent(new Event('submit'));
                 document.querySelector('#search input').value = '';
-            }else{
+            } else {
                 document.querySelector('#search input').focus();
             }
         });
@@ -75,6 +83,7 @@ window.onload = () => {
     window.addEventListener('pjax:load', () => {
         init();
         highlightAll();
+        katexRender();
     });
 };
 

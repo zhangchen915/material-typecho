@@ -11,8 +11,8 @@
   "dependencies": {
     "@material/tabs": "^2.3.0",
     "material-components-web": "^2.3.1",
-    "pjax-api": "^3.29.6",
-    "prismjs": "^1.16.0",
+    "pjax-api": "^3.30.0",
+    "prismjs": "^1.19.0",
     "zooming": "^2.1.1"
   },
   "devDependencies": {

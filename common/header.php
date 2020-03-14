@@ -20,6 +20,10 @@
     </script>
     <?php endif;?>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+    
     <title>
         <?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
