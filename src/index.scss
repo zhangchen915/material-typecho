@@ -169,6 +169,7 @@
     .entry-summary {
         color: $gray-deep;
         .thumbnail {
+            min-width: 105px;
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
