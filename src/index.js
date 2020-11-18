@@ -51,7 +51,7 @@ window.onload = () => {
     init();
     katexRender();
     if (navigator.userAgent.match(/AppleWebKit.*Mobile.*/)) {
-        import('./drawer').then();
+        // import('./drawer').then();
     } else {
         import('./compatible').then();
         import('./background').then(background => {

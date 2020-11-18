@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-    
+
     <title>
         <?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
@@ -50,31 +50,12 @@
 
 <canvas class='connecting-dots'></canvas>
 
-<?php if(is_mobile()) : ?>
-    <aside class="mdc-drawer mdc-drawer--persistent mdc-typography">
-        <nav class="mdc-drawer__drawer">
-            <div class="mdc-drawer__toolbar-spacer"></div>
-            <div class="mdc-list-group">
-                <nav class="mdc-list">
-                    <a class="mdc-list-item mdc-list-item--activated" href="<?php $this->options->siteUrl(); ?>" id="home">首页</a>
-                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                    <?php while($pages->next()): ?>
-                    <a href="<?php $pages->permalink(); ?>" class="mdc-list-item"><?php $pages->title(); ?></a>
-                    <?php endwhile; ?> 
-                </nav>
-            </div>
-        </nav>
-    </aside>
-<?php endif;?>
-
 <div class="body-content">
 <header id="header">
     <div class="container">
         <div class="header-left">
-            <?php if(is_mobile()) : ?><a id="toggle"><span></span></a><?php endif;?>
             <h1 class="logo"><a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
 
-            <?php if(!is_mobile()) : ?>
             <div class="mdc-tab-bar">
                 <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                 <?php while($pages->next()): ?>
@@ -90,7 +71,6 @@
                 </button>
                 <?php endwhile; ?>
             </div>
-            <?php endif;?>
         </div>
 
         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowSearch', $this->options->sidebarBlock)): ?>
