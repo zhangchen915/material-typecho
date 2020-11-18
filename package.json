@@ -16,7 +16,7 @@
     "zooming": "^2.1.1"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "parcel-bundler": "^1.12.3"
   }
 }
