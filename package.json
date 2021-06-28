@@ -12,7 +12,7 @@
     "@material/tabs": "^2.3.0",
     "material-components-web": "^2.3.1",
     "pjax-api": "^3.33.0",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.24.0",
     "zooming": "^2.1.1"
   },
   "devDependencies": {
